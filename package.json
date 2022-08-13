@@ -132,7 +132,7 @@
     "react-prism": "4.3.2",
     "react-router": "3.2.6",
     "reactstrap": "7.1.0",
-    "rollup": "1.15.1",
+    "rollup": "1.32.1",
     "rollup-plugin-babel": "4.3.2",
     "rollup-plugin-babel-minify": "7.0.0",
     "rollup-plugin-commonjs": "9.3.4",
