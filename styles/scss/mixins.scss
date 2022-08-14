@@ -1,3 +1,4 @@
+
 @mixin hide-visually {
   border: 0;
   clip: rect(0 0 0 0);
@@ -24,6 +25,7 @@
   user-select: $string;
 }
 
+
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
@@ -34,6 +36,7 @@
   background-color: $color;
   background-color: rgba($color, $alpha);
 }
+
 
 @mixin transform($transform) {
   -moz-transform: $transform;
@@ -80,7 +83,7 @@
 }
 
 // https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow
-@mixin box-shadow($string: 0 0 1em rgba(0, 0, 0, 0.25)) {
+@mixin box-shadow ($string: 0 0 1em rgba(0, 0, 0, 0.25)) {
   -webkit-box-shadow: $string;
   -moz-box-shadow: $string;
   box-shadow: $string;
@@ -97,7 +100,7 @@
 // Fill the width of the containing element and use padding to create the
 // desired aspect ratio. Default to 16x9 unless another ratio is given.
 @mixin apply-aspect-ratio($width, $height) {
-  padding-top: 100% * math.div($height, $width);
+  padding-top: 100% * ($height/$width);
 }
 
 %video-react-fill-parent {
