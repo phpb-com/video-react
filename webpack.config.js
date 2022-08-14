@@ -7,10 +7,10 @@ const env = process.env.WEBPACK_BUILD || process.env.NODE_ENV || 'development';
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
 
 const outputFilename = 'video-react';
-const minimizer = env === 'production' ? [new UglifyJsPlugin()] : [];
+const minimizer = env === 'production' ? [new TerserPlugin()] : [];
 const outputFile =
   env === 'production'
     ? `${outputFilename.toLowerCase()}.min.js`
