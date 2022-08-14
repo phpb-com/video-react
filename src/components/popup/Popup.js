@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 const propTypes = {
   player: PropTypes.object,
-  children: PropTypes.any
+  children: PropTypes.any,
 };
 
 export default class Popup extends Component {

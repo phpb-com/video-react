@@ -11,7 +11,7 @@ const propTypes = {
   className: PropTypes.string,
   onSelectItem: PropTypes.func,
   children: PropTypes.any,
-  selectedIndex: PropTypes.number
+  selectedIndex: PropTypes.number,
 };
 
 export default class MenuButton extends Component {
@@ -20,7 +20,7 @@ export default class MenuButton extends Component {
 
     this.state = {
       active: false,
-      activateIndex: props.selectedIndex || 0
+      activateIndex: props.selectedIndex || 0,
     };
 
     this.commitSelection = this.commitSelection.bind(this);
@@ -47,14 +47,14 @@ export default class MenuButton extends Component {
 
   commitSelection(index) {
     this.setState({
-      activateIndex: index
+      activateIndex: index,
     });
     this.handleIndexChange(index);
   }
 
   activateMenuItem(index) {
     this.setState({
-      activateIndex: index
+      activateIndex: index,
     });
     this.handleIndexChange(index);
   }
@@ -65,8 +65,8 @@ export default class MenuButton extends Component {
   }
 
   handleClick() {
-    this.setState(prevState => ({
-      active: !prevState.active
+    this.setState((prevState) => ({
+      active: !prevState.active,
     }));
   }
 
@@ -76,7 +76,7 @@ export default class MenuButton extends Component {
 
   handleBlur() {
     this.setState({
-      active: false
+      active: false,
     });
     document.removeEventListener('keydown', this.handleKeyPress);
   }
@@ -118,7 +118,7 @@ export default class MenuButton extends Component {
       this.commitSelection(this.state.activateIndex);
     } else {
       this.setState({
-        active: true
+        active: true,
       });
     }
   }
@@ -126,7 +126,7 @@ export default class MenuButton extends Component {
   handleEscape() {
     this.setState({
       active: false,
-      activateIndex: 0
+      activateIndex: 0,
     });
   }
 
@@ -184,13 +184,13 @@ export default class MenuButton extends Component {
           {
             'video-react-menu-button-inline': !!inline,
             'video-react-menu-button-popup': !inline,
-            'video-react-menu-button-active': this.state.active
+            'video-react-menu-button-active': this.state.active,
           },
           'video-react-control video-react-button video-react-menu-button'
         )}
         role="button"
         tabIndex="0"
-        ref={c => {
+        ref={(c) => {
           this.menuButton = c;
         }}
         onClick={this.handleClick}

@@ -10,13 +10,13 @@ const propTypes = {
   className: PropTypes.string,
   offMenuText: PropTypes.string,
   showOffMenu: PropTypes.bool,
-  kinds: PropTypes.array
+  kinds: PropTypes.array,
 };
 
 const defaultProps = {
   offMenuText: 'Off',
   showOffMenu: true,
-  kinds: ['captions', 'subtitles'] // `kind`s of TextTrack to look for to associate it with this menu.
+  kinds: ['captions', 'subtitles'], // `kind`s of TextTrack to look for to associate it with this menu.
 };
 
 class OptionsOverlay extends Component {
@@ -24,9 +24,8 @@ class OptionsOverlay extends Component {
     super(props, context);
 
     this.getTextTrackItems = this.getTextTrackItems.bind(this);
-    this.handleSelectAudioDescription = this.handleSelectAudioDescription.bind(
-      this
-    );
+    this.handleSelectAudioDescription =
+      this.handleSelectAudioDescription.bind(this);
     this.updateState = this.updateState.bind(this);
     this.handleSelectItem = this.handleSelectItem.bind(this);
 
@@ -42,7 +41,7 @@ class OptionsOverlay extends Component {
     const { textTracks, activeTextTrack } = player;
     const textTrackItems = {
       items: [],
-      selectedIndex: 0
+      selectedIndex: 0,
     };
     const tracks = Array.from(textTracks || []);
 
@@ -53,11 +52,11 @@ class OptionsOverlay extends Component {
     if (showOffMenu) {
       textTrackItems.items.push({
         label: offMenuText || 'Off',
-        value: null
+        value: null,
       });
     }
 
-    tracks.forEach(textTrack => {
+    tracks.forEach((textTrack) => {
       // ignore invalid text track kind
       if (kinds.length && !kinds.includes(textTrack.kind)) {
         return;
@@ -65,12 +64,12 @@ class OptionsOverlay extends Component {
 
       textTrackItems.items.push({
         label: textTrack.label,
-        value: textTrack.language
+        value: textTrack.language,
       });
     });
 
     textTrackItems.selectedIndex = textTrackItems.items.findIndex(
-      item => activeTextTrack && activeTextTrack.language === item.value
+      (item) => activeTextTrack && activeTextTrack.language === item.value
     );
 
     if (textTrackItems.selectedIndex === -1) {

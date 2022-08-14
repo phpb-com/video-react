@@ -5,7 +5,7 @@ import classNames from 'classnames';
 const propTypes = {
   actions: PropTypes.object,
   player: PropTypes.object,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 export default class PlayToggle extends Component {
@@ -29,7 +29,7 @@ export default class PlayToggle extends Component {
 
     return (
       <button
-        ref={c => {
+        ref={(c) => {
           this.button = c;
         }}
         className={classNames(className, {
@@ -37,7 +37,7 @@ export default class PlayToggle extends Component {
           'video-react-control': true,
           'video-react-button': true,
           'video-react-paused': player.paused,
-          'video-react-playing': !player.paused
+          'video-react-playing': !player.paused,
         })}
         type="button"
         tabIndex="0"

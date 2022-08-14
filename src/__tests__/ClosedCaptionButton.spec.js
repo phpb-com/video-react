@@ -10,28 +10,28 @@ const playerState = {
       kind: 'captions',
       label: 'English',
       language: 'en',
-      mode: 'showing'
+      mode: 'showing',
     },
     {
       kind: 'captions',
       label: 'Swedish',
       language: 'sv',
-      mode: 'hidden'
+      mode: 'hidden',
     },
     {
       kind: 'captions',
       label: 'Russian',
       language: 'ru',
-      mode: 'hidden'
+      mode: 'hidden',
     },
     {
       kind: 'descriptions',
       label: 'English',
       language: 'en',
-      mode: 'hidden'
-    }
+      mode: 'hidden',
+    },
   ],
-  currentTextTrack: null
+  currentTextTrack: null,
 };
 
 describe('ClosedCaptionButton', () => {

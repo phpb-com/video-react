@@ -2,7 +2,7 @@ import React from 'react';
 import { Player, ControlBar } from 'video-react';
 import DownloadButton from './DownloadButton';
 
-export default props => {
+export default (props) => {
   // Add customized HLSSource component into video-react Player
   // The Component with `isVideoChild` attribute will be added into `Video` component
   // Please use this url if you test it from local:

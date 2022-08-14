@@ -6,7 +6,7 @@ const propTypes = {
   player: PropTypes.object,
   actions: PropTypes.object,
   className: PropTypes.string,
-  audioDescriptions: PropTypes.any
+  audioDescriptions: PropTypes.any,
 };
 
 class AudioDescription extends Component {

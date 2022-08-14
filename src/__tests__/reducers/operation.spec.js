@@ -8,8 +8,8 @@ describe('reducer', () => {
       count: 0,
       operation: {
         action: '',
-        source: ''
-      }
+        source: '',
+      },
     };
     expect(operation(undefined, {})).toEqual(expectedInitialState);
   });
@@ -19,22 +19,22 @@ describe('reducer', () => {
       count: 0,
       operation: {
         action: '',
-        source: ''
-      }
+        source: '',
+      },
     };
     const action = {
       type: OPERATE,
       operation: {
         action: '',
-        source: ''
-      }
+        source: '',
+      },
     };
     const stateAfter = {
       count: 1,
       operation: {
         action: '',
-        source: ''
-      }
+        source: '',
+      },
     };
 
     deepFreeze(stateBefore);
@@ -48,22 +48,22 @@ describe('reducer', () => {
       count: 0,
       operation: {
         action: '',
-        source: ''
-      }
+        source: '',
+      },
     };
     const action = {
       type: OPERATE,
       operation: {
         action: '',
-        source: ''
-      }
+        source: '',
+      },
     };
     const stateAfter = {
       count: 100,
       operation: {
         action: '',
-        source: ''
-      }
+        source: '',
+      },
     };
 
     deepFreeze(stateBefore);

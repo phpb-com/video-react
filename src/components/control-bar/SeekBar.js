@@ -13,7 +13,7 @@ const propTypes = {
   player: PropTypes.object,
   mouseTime: PropTypes.object,
   actions: PropTypes.object,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 export default class SeekBar extends Component {
@@ -49,7 +49,7 @@ export default class SeekBar extends Component {
 
   getNewTime(event) {
     const {
-      player: { duration }
+      player: { duration },
     } = this.props;
     const distance = this.slider.calculateDistance(event);
     const newTime = distance * duration;
@@ -89,7 +89,7 @@ export default class SeekBar extends Component {
       children,
       player: { currentTime, seekingTime, duration, buffered },
       mouseTime,
-      type
+      type,
     } = this.props;
     const time = seekingTime || currentTime;
 
@@ -101,7 +101,7 @@ export default class SeekBar extends Component {
 
     return (
       <Slider
-        ref={input => {
+        ref={(input) => {
           this.slider = input;
         }}
         label={label}

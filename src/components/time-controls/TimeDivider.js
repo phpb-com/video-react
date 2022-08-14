@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 const propTypes = {
   separator: PropTypes.string,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 export default function TimeDivider({ separator, className }) {

@@ -9,7 +9,7 @@ import SeekBar from './SeekBar';
 const propTypes = {
   children: PropTypes.node,
   player: PropTypes.object,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 export default class ProgressControl extends Component {
@@ -19,8 +19,8 @@ export default class ProgressControl extends Component {
     this.state = {
       mouseTime: {
         time: null,
-        position: 0
-      }
+        position: 0,
+      },
     };
 
     this.handleMouseMoveThrottle = this.handleMouseMove.bind(this);
@@ -31,7 +31,7 @@ export default class ProgressControl extends Component {
       return;
     }
     const {
-      player: { duration }
+      player: { duration },
     } = this.props;
     const node = this.seekBar;
     const newTime = Dom.getPointerPosition(node, event).x * duration;
@@ -40,8 +40,8 @@ export default class ProgressControl extends Component {
     this.setState({
       mouseTime: {
         time: newTime,
-        position
-      }
+        position,
+      },
     });
   }
 
@@ -49,11 +49,11 @@ export default class ProgressControl extends Component {
     return [
       <SeekBar
         mouseTime={this.state.mouseTime}
-        ref={c => {
+        ref={(c) => {
           this.seekBar = c;
         }}
         {...this.props}
-      />
+      />,
     ];
   }
 

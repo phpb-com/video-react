@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import { Container, Row, Col, Nav, NavItem, NavLink } from 'reactstrap';
 
-const CustomizeLink = props => (
+const CustomizeLink = (props) => (
   <NavItem>
     <NavLink tag={Link} to={props.item.to} activeClassName="active">
       {props.item.name}
@@ -18,17 +18,17 @@ class Customize extends React.Component {
       navItems: [
         {
           name: 'Enable Disable Component',
-          to: '/customize/enable-disable-components/'
+          to: '/customize/enable-disable-components/',
         },
         {
           name: 'Customize Component',
-          to: '/customize/customize-component/'
+          to: '/customize/customize-component/',
         },
         {
           name: 'Customize Video Source',
-          to: '/customize/customize-source/'
-        }
-      ]
+          to: '/customize/customize-source/',
+        },
+      ],
     };
   }
 
@@ -40,7 +40,7 @@ class Customize extends React.Component {
             <div className="docs-sidebar mb-3">
               <h5>Customize</h5>
               <Nav className="flex-column">
-                {this.state.navItems.map(item => (
+                {this.state.navItems.map((item) => (
                   <CustomizeLink key={item.name} item={item} />
                 ))}
               </Nav>

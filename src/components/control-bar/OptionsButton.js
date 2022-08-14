@@ -3,10 +3,10 @@ import React from 'react';
 import classNames from 'classnames';
 
 const propTypes = {
-  actions: PropTypes.object
+  actions: PropTypes.object,
 };
 
-const OptionsButton = props => {
+const OptionsButton = (props) => {
   return (
     <button
       type="button"

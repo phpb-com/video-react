@@ -3,9 +3,9 @@
   "version": "0.14.1",
   "description": "Video-React is a web video player built from the ground up for an HTML5 world using React library.",
   "main": "lib/index.js",
-  "exports":{
-    ".":{
-      "require": "./lib/index.js" ,
+  "exports": {
+    ".": {
+      "require": "./lib/index.js",
       "import": "./dist/video-react.es.js"
     }
   },
@@ -24,6 +24,7 @@
     "create-patch": "sh ./scripts/release patch",
     "publish-release": "npm test && sh ./scripts/publish",
     "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
     "format-all": "prettier --config .prettierrc.js --write \"src/**/*.{js,json,md}\" \"docs/**/*.{js,json,md}\" \"*.{js,json,md}\"",
     "format-one": "prettier --config .prettierrc.js --write"
   },

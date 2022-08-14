@@ -20,7 +20,7 @@ import AudioDescription from './menu/AudioDescription';
 
 export const MediaType = {
   audio: 'AUDIO',
-  video: 'VIDEO'
+  video: 'VIDEO',
 };
 
 const propTypes = {
@@ -66,7 +66,7 @@ const propTypes = {
   onRateChange: PropTypes.func,
   onVolumeChange: PropTypes.func,
 
-  store: PropTypes.object
+  store: PropTypes.object,
 };
 
 const defaultProps = {
@@ -74,7 +74,7 @@ const defaultProps = {
   muted: false,
   playsInline: false,
   preload: 'auto',
-  aspectRatio: 'auto'
+  aspectRatio: 'auto',
 };
 
 export class Player extends Component {
@@ -121,7 +121,7 @@ export class Player extends Component {
   getDefaultChildren(originalChildren) {
     return [
       <Media
-        ref={c => {
+        ref={(c) => {
           this.video = c;
           this.manager.video = this.video;
         }}
@@ -136,7 +136,7 @@ export class Player extends Component {
       <ControlBar key="control-bar" order={5.0} />,
       <AudioDescription key="audio-description" order={6.0} />,
       <OptionsOverlay key="options-overlay" order={7.0} />,
-      <Shortcut key="shortcut" order={99.0} />
+      <Shortcut key="shortcut" order={99.0} />,
     ];
   }
 
@@ -147,7 +147,7 @@ export class Player extends Component {
       ...propsWithoutChildren
     } = props;
     const children = React.Children.toArray(this.props.children).filter(
-      e => !isVideoChild(e)
+      (e) => !isVideoChild(e)
     );
     const defaultChildren = this.getDefaultChildren(originalChildren);
     return mergeAndSortChildren(
@@ -169,7 +169,7 @@ export class Player extends Component {
       styleVal = `${value}px`;
     }
     Object.assign(style, {
-      [name]: styleVal
+      [name]: styleVal,
     });
   }
 
@@ -178,7 +178,7 @@ export class Player extends Component {
       fluid,
       aspectRatio: propsAspectRatio,
       height: propsHeight,
-      width: propsWidth
+      width: propsWidth,
     } = this.props;
     const { player } = this.manager.getState();
     const style = {};
@@ -348,7 +348,7 @@ export class Player extends Component {
 
   startControlsTimer() {
     let controlBarActiveTime = 3000;
-    React.Children.forEach(this.props.children, element => {
+    React.Children.forEach(this.props.children, (element) => {
       if (!React.isValidElement(element) || element.type !== ControlBar) {
         return;
       }
@@ -386,14 +386,8 @@ export class Player extends Component {
   render() {
     const { fluid } = this.props;
     const { player } = this.manager.getState();
-    const {
-      paused,
-      hasStarted,
-      waiting,
-      seeking,
-      isFullscreen,
-      userActivity
-    } = player;
+    const { paused, hasStarted, waiting, seeking, isFullscreen, userActivity } =
+      player;
 
     const props = {
       ...this.props,
@@ -401,7 +395,7 @@ export class Player extends Component {
       actions: this.actions,
       manager: this.manager,
       store: this.manager.store,
-      video: this.video ? this.video.video : null
+      video: this.video ? this.video.video : null,
     };
     const children = this.getChildren(props);
 
@@ -419,13 +413,13 @@ export class Player extends Component {
             'video-react-fullscreen': isFullscreen,
             'video-react-user-inactive': !userActivity,
             'video-react-user-active': userActivity,
-            'video-react-workinghover': !browser.IS_IOS
+            'video-react-workinghover': !browser.IS_IOS,
           },
           'video-react',
           this.props.className
         )}
         style={this.getStyle()}
-        ref={c => {
+        ref={(c) => {
           this.manager.rootElement = c;
         }}
         role="region"

@@ -8,7 +8,7 @@ export default class PlayerExample extends Component {
 
     this.state = {
       playerSource: 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4',
-      inputVideoUrl: 'http://www.w3schools.com/html/mov_bbb.mp4'
+      inputVideoUrl: 'http://www.w3schools.com/html/mov_bbb.mp4',
     };
 
     this.handleValueChange = this.handleValueChange.bind(this);
@@ -24,14 +24,14 @@ export default class PlayerExample extends Component {
   handleValueChange(e) {
     const { value } = e.target;
     this.setState({
-      inputVideoUrl: value
+      inputVideoUrl: value,
     });
   }
 
   updatePlayerInfo() {
     const { inputVideoUrl } = this.state;
     this.setState({
-      playerSource: inputVideoUrl
+      playerSource: inputVideoUrl,
     });
   }
 
@@ -39,7 +39,7 @@ export default class PlayerExample extends Component {
     return (
       <div>
         <Player
-          ref={player => {
+          ref={(player) => {
             this.player = player;
           }}
           videoId="video-1"

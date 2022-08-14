@@ -4,7 +4,7 @@ import React from 'react';
 const propTypes = {
   src: PropTypes.string.isRequired,
   media: PropTypes.string,
-  type: PropTypes.string
+  type: PropTypes.string,
 };
 
 export default function Source(props) {

@@ -6,7 +6,7 @@ const propTypes = {
   label: PropTypes.string,
   index: PropTypes.number,
   activateIndex: PropTypes.number,
-  onSelectItem: PropTypes.func
+  onSelectItem: PropTypes.func,
 };
 
 export default class MenuItem extends Component {
@@ -33,7 +33,7 @@ export default class MenuItem extends Component {
         <div
           className={classNames({
             'video-react-menu-item-radio': true,
-            'video-react-menu-item-radio-selected': index === activateIndex
+            'video-react-menu-item-radio-selected': index === activateIndex,
           })}
         />
         <p>{label}</p>

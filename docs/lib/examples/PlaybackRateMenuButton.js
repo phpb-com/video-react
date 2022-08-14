@@ -10,7 +10,7 @@ export default class PlaybackRateMenuButtonExmaple extends Component {
   render() {
     return (
       <Player
-        ref={c => {
+        ref={(c) => {
           this.player = c;
         }}
         playsInline

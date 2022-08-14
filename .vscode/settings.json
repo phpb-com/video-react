@@ -8,5 +8,8 @@
   ],
   "html.format.endWithNewline": true,
   "files.trimTrailingWhitespace": true,
-  "editor.trimAutoWhitespace": true
+  "editor.trimAutoWhitespace": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }

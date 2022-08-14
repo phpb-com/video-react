@@ -43,7 +43,7 @@ const propTypes = {
   onTimeUpdate: PropTypes.func,
   onRateChange: PropTypes.func,
   onVolumeChange: PropTypes.func,
-  onResize: PropTypes.func
+  onResize: PropTypes.func,
 };
 
 export default class Media extends Component {
@@ -154,7 +154,7 @@ export default class Media extends Component {
     const { actions, player } = this.props;
     if (this.video && this.video.textTracks) {
       const activeTextTrack = Array.from(this.video.textTracks).find(
-        textTrack => textTrack.mode === 'showing'
+        (textTrack) => textTrack.mode === 'showing'
       );
       if (activeTextTrack !== player.activeTextTrack) {
         actions.activateTextTrack(activeTextTrack);
@@ -489,7 +489,7 @@ export default class Media extends Component {
   renderChildren() {
     const props = {
       ...this.props,
-      video: this.video
+      video: this.video,
     };
 
     // to make sure the children can get video property
@@ -500,7 +500,7 @@ export default class Media extends Component {
     // only keep <source />, <track />, <MyComponent isVideoChild /> elements
     return React.Children.toArray(this.props.children)
       .filter(isVideoChild)
-      .map(c => {
+      .map((c) => {
         let cprops;
         if (typeof c.type === 'string') {
           // add onError to <source />
@@ -532,7 +532,7 @@ export default class Media extends Component {
       playsInline,
       muted,
       crossOrigin,
-      videoId
+      videoId,
     } = this.props;
     if (type === MediaType.video) {
       return (
@@ -540,7 +540,7 @@ export default class Media extends Component {
           className={classNames('video-react-video', this.props.className)}
           id={videoId}
           crossOrigin={crossOrigin}
-          ref={c => {
+          ref={(c) => {
             this.video = c;
           }}
           muted={muted}
@@ -583,7 +583,7 @@ export default class Media extends Component {
         className={classNames('video-react-video', this.props.className)}
         id={videoId}
         crossOrigin={crossOrigin}
-        ref={c => {
+        ref={(c) => {
           this.video = c;
         }}
         muted={muted}

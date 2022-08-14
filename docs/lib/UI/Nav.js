@@ -8,7 +8,7 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink
+  NavLink,
 } from 'reactstrap';
 
 export default class UINav extends React.Component {
@@ -17,14 +17,14 @@ export default class UINav extends React.Component {
 
     this.toggleNavbar = this.toggleNavbar.bind(this);
     this.state = {
-      showNavbar: false
+      showNavbar: false,
     };
   }
 
   toggleNavbar(e) {
     e.preventDefault();
-    this.setState(state => ({
-      showNavbar: !state.showNavbar
+    this.setState((state) => ({
+      showNavbar: !state.showNavbar,
     }));
   }
 

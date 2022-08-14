@@ -71,5 +71,5 @@ export {
   playerActions,
   videoActions,
   playerReducer,
-  operationReducer
+  operationReducer,
 };

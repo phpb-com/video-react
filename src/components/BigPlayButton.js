@@ -6,11 +6,11 @@ const propTypes = {
   actions: PropTypes.object,
   player: PropTypes.object,
   position: PropTypes.string,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 const defaultProps = {
-  position: 'left'
+  position: 'left',
 };
 
 export default class BigPlayButton extends Component {
@@ -37,7 +37,7 @@ export default class BigPlayButton extends Component {
           `video-react-big-play-button-${position}`,
           this.props.className,
           {
-            'big-play-button-hide': player.hasStarted || !player.currentSrc
+            'big-play-button-hide': player.hasStarted || !player.currentSrc,
           }
         )}
         type="button"

@@ -8,7 +8,7 @@ describe('BigPlayButton', () => {
       <BigPlayButton
         player={{
           hasStarted: false,
-          currentSrc: 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4'
+          currentSrc: 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4',
         }}
       />
     );
@@ -21,7 +21,7 @@ describe('BigPlayButton', () => {
       <BigPlayButton
         player={{
           hasStarted: true,
-          currentSrc: 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4'
+          currentSrc: 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4',
         }}
       />
     );
@@ -33,7 +33,7 @@ describe('BigPlayButton', () => {
       <BigPlayButton
         player={{
           hasStarted: false,
-          currentSrc: 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4'
+          currentSrc: 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4',
         }}
       />
     );
@@ -46,7 +46,7 @@ describe('BigPlayButton', () => {
         position="center"
         player={{
           hasStarted: false,
-          currentSrc: 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4'
+          currentSrc: 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4',
         }}
       />
     );

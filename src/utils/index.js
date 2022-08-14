@@ -2,7 +2,7 @@ import React from 'react';
 
 // NaN is the only value in javascript which is not equal to itself.
 // eslint-disable-next-line no-self-compare
-const isNaN = Number.isNaN || (value => value !== value);
+const isNaN = Number.isNaN || ((value) => value !== value);
 
 /**
  * @file format-time.js
@@ -87,14 +87,14 @@ export function mergeAndSortChildren(
   const children = React.Children.toArray(_children);
   const { order, ...parentProps } = _parentProps; // ignore order from parent
   return children
-    .filter(e => !e.props.disabled) // filter the disabled components
+    .filter((e) => !e.props.disabled) // filter the disabled components
     .concat(
       defaultChildren.filter(
-        c => !find(children, component => isTypeEqual(component, c))
+        (c) => !find(children, (component) => isTypeEqual(component, c))
       )
     )
-    .map(element => {
-      const defaultComponent = find(defaultChildren, c =>
+    .map((element) => {
+      const defaultComponent = find(defaultChildren, (c) =>
         isTypeEqual(c, element)
       );
 
@@ -102,7 +102,7 @@ export function mergeAndSortChildren(
       const props = {
         ...parentProps, // inherit from parent component
         ...defaultProps, // inherit from default component
-        ...element.props // element's own props
+        ...element.props, // element's own props
       };
       const e = React.cloneElement(element, props, element.props.children);
       return e;
@@ -171,5 +171,5 @@ export const mediaProperties = [
   'height',
   'videoWidth',
   'videoHeight',
-  'poster'
+  'poster',
 ];

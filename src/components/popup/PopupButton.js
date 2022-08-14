@@ -9,11 +9,11 @@ const propTypes = {
   onClick: PropTypes.func.isRequired,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 const defaultProps = {
-  inline: true
+  inline: true,
 };
 
 export default function PopupButton(props) {
@@ -28,7 +28,7 @@ export default function PopupButton(props) {
         className,
         {
           'video-react-menu-button-inline': !!inline,
-          'video-react-menu-button-popup': !inline
+          'video-react-menu-button-popup': !inline,
         },
         'video-react-control video-react-button video-react-menu-button'
       )}

@@ -6,12 +6,12 @@ import { formatTime } from '../../utils';
 
 const propTypes = {
   player: PropTypes.object,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 function RemainingTimeDisplay({
   player: { currentTime, duration },
-  className
+  className,
 }) {
   const remainingTime = duration - currentTime;
   const formattedTime = formatTime(remainingTime);

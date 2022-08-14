@@ -16,7 +16,7 @@ describe('Slider', () => {
   it('simulates click events', () => {
     const e = {
       preventDefault: jest.fn(),
-      stopPropagation: jest.fn()
+      stopPropagation: jest.fn(),
     };
     const onClick = jest.fn();
     const wrapper = shallow(

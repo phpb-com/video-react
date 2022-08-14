@@ -11,9 +11,10 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const outputFilename = 'video-react';
 const minimizer = env === 'production' ? [new UglifyJsPlugin()] : [];
-const outputFile = env === 'production'
-  ? `${outputFilename.toLowerCase()}.min.js`
-  : `${outputFilename.toLowerCase()}.js`;
+const outputFile =
+  env === 'production'
+    ? `${outputFilename.toLowerCase()}.min.js`
+    : `${outputFilename.toLowerCase()}.js`;
 
 const paths = [
   '/',
@@ -34,7 +35,7 @@ const paths = [
   '/customize/enable-disable-components/',
   '/customize/customize-source/',
   '/customize/customize-component/',
-  '/404.html'
+  '/404.html',
 ];
 
 const config = {
@@ -48,44 +49,44 @@ const config = {
     host: '0.0.0.0',
     port: 9000,
     stats: {
-      chunks: false
-    }
+      chunks: false,
+    },
   },
   entry: ['@babel/polyfill', './docs/lib/app'],
   node: {
-    fs: 'empty'
+    fs: 'empty',
   },
   output: {
     filename: 'bundle.js',
     path: path.resolve('./build'),
     libraryTarget: 'umd',
-    library: 'VideoReact'
+    library: 'VideoReact',
   },
   plugins: [
     new CleanWebpackPlugin(['build']),
     new CopyWebpackPlugin([
       { from: './docs/static', to: 'assets' },
-      { from: './dist', to: 'assets' }
+      { from: './dist', to: 'assets' },
     ]),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(env)
+      'process.env.NODE_ENV': JSON.stringify(env),
     }),
     new StaticSiteGeneratorPlugin({
       paths,
       globals: {
-        window: {}
-      }
+        window: {},
+      },
     }),
     new MiniCssExtractPlugin({
       filename: 'assets/[name].css',
-      chunkFilename: 'assets/[id].css'
-    })
+      chunkFilename: 'assets/[id].css',
+    }),
   ],
   module: {
     rules: [
       {
         test: /\.(json)$/,
-        use: ['json-loader?cacheDirectory']
+        use: ['json-loader?cacheDirectory'],
       },
       {
         test: /\.(js|jsx)$/,
@@ -94,9 +95,9 @@ const config = {
           loader: 'babel-loader?cacheDirectory',
           options: {
             presets: ['@babel/preset-env'],
-            plugins: ['@babel/plugin-proposal-object-rest-spread']
-          }
-        }
+            plugins: ['@babel/plugin-proposal-object-rest-spread'],
+          },
+        },
       },
       {
         test: /\.css$/,
@@ -104,11 +105,11 @@ const config = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              publicPath: 'assets'
-            }
+              publicPath: 'assets',
+            },
           },
-          'css-loader'
-        ]
+          'css-loader',
+        ],
       },
       {
         test: /\.scss$/,
@@ -116,12 +117,12 @@ const config = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              publicPath: 'assets'
-            }
+              publicPath: 'assets',
+            },
           },
           'css-loader',
-          'sass-loader'
-        ]
+          'sass-loader',
+        ],
       },
       {
         test: /\.woff(2)?(\?[a-z0-9=&.]+)?$/,
@@ -130,10 +131,10 @@ const config = {
             loader: 'url-loader',
             options: {
               limit: 10000,
-              mimetype: 'application/font-woff'
-            }
-          }
-        ]
+              mimetype: 'application/font-woff',
+            },
+          },
+        ],
       },
       {
         test: /\.(ttf|eot|svg)(\?[a-z0-9=&.]+)?$/,
@@ -142,12 +143,12 @@ const config = {
             loader: 'url-loader',
             options: {
               limit: 30000,
-              mimetype: '[name]-[hash].[ext]'
-            }
-          }
-        ]
-      }
-    ]
+              mimetype: '[name]-[hash].[ext]',
+            },
+          },
+        ],
+      },
+    ],
   },
   resolve: {
     extensions: ['.js', '.json'],
@@ -157,9 +158,9 @@ const config = {
         'node_modules/bootstrap/scss/bootstrap.scss'
       ),
       'video-react-scss': path.resolve('./styles/scss/video-react.scss'),
-      'video-react': path.resolve('./src')
+      'video-react': path.resolve('./src'),
     },
-    modules: [path.resolve('./src'), 'node_modules']
+    modules: [path.resolve('./src'), 'node_modules'],
   },
   optimization: {
     noEmitOnErrors: true,
@@ -170,11 +171,11 @@ const config = {
           name: 'styles',
           test: /\.css$/,
           chunks: 'all',
-          enforce: true
-        }
-      }
-    }
-  }
+          enforce: true,
+        },
+      },
+    },
+  },
 };
 
 module.exports = config;

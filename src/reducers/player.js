@@ -24,7 +24,7 @@ import {
   LOADED_DATA,
   ACTIVATE_TEXT_TRACK,
   RESIZE,
-  ERROR
+  ERROR,
 } from '../actions/video';
 import {
   FULLSCREEN_CHANGE,
@@ -32,7 +32,7 @@ import {
   USER_ACTIVATE,
   OPTIONS_OVERLAY_CHANGE,
   ACTIVE_AUDIO_DESCRIPTION,
-  AUDIO_DESCRIPTIONS
+  AUDIO_DESCRIPTIONS,
 } from '../actions/player';
 
 const initialState = {
@@ -60,7 +60,7 @@ const initialState = {
   activeTextTrack: null,
   isOptionsOverlayOpen: false,
   audioDescriptions: [],
-  activeAudioDescription: 0
+  activeAudioDescription: 0,
 };
 
 export default function player(state = initialState, action) {
@@ -68,58 +68,58 @@ export default function player(state = initialState, action) {
     case USER_ACTIVATE:
       return {
         ...state,
-        userActivity: action.activity
+        userActivity: action.activity,
       };
     case PLAYER_ACTIVATE:
       return {
         ...state,
-        isActive: action.activity
+        isActive: action.activity,
       };
     case FULLSCREEN_CHANGE:
       return {
         ...state,
-        isFullscreen: !!action.isFullscreen
+        isFullscreen: !!action.isFullscreen,
       };
     case OPTIONS_OVERLAY_CHANGE:
       return {
         ...state,
-        isOptionsOverlayOpen: !state.isOptionsOverlayOpen
+        isOptionsOverlayOpen: !state.isOptionsOverlayOpen,
       };
     case SEEKING_TIME:
       return {
         ...state,
-        seekingTime: action.time
+        seekingTime: action.time,
       };
     case END_SEEKING:
       return {
         ...state,
-        seekingTime: 0
+        seekingTime: 0,
       };
     case LOAD_START:
       return {
         ...state,
         ...action.videoProps,
         hasStarted: false,
-        ended: false
+        ended: false,
       };
     case CAN_PLAY:
       return {
         ...state,
         ...action.videoProps,
-        waiting: false
+        waiting: false,
       };
     case WAITING:
       return {
         ...state,
         ...action.videoProps,
-        waiting: true
+        waiting: true,
       };
     case CAN_PLAY_THROUGH:
     case PLAYING:
       return {
         ...state,
         ...action.videoProps,
-        waiting: false
+        waiting: false,
       };
     case PLAY:
       return {
@@ -129,38 +129,38 @@ export default function player(state = initialState, action) {
         paused: false,
         autoPaused: false,
         waiting: false,
-        hasStarted: true
+        hasStarted: true,
       };
     case PAUSE:
       return {
         ...state,
         ...action.videoProps,
-        paused: true
+        paused: true,
       };
     case END:
       return {
         ...state,
         ...action.videoProps,
-        ended: true
+        ended: true,
       };
     case SEEKING:
       return {
         ...state,
         ...action.videoProps,
-        seeking: true
+        seeking: true,
       };
     case SEEKED:
       return {
         ...state,
         ...action.videoProps,
-        seeking: false
+        seeking: false,
       };
     case ERROR:
       return {
         ...state,
         ...action.videoProps,
         error: 'UNKNOWN ERROR',
-        ended: true
+        ended: true,
       };
     case DURATION_CHANGE:
     case TIME_UPDATE:
@@ -176,22 +176,22 @@ export default function player(state = initialState, action) {
     case RESIZE:
       return {
         ...state,
-        ...action.videoProps
+        ...action.videoProps,
       };
     case ACTIVATE_TEXT_TRACK:
       return {
         ...state,
-        activeTextTrack: action.textTrack
+        activeTextTrack: action.textTrack,
       };
     case AUDIO_DESCRIPTIONS:
       return {
         ...state,
-        audioDescriptions: action.audioDescriptions
+        audioDescriptions: action.audioDescriptions,
       };
     case ACTIVE_AUDIO_DESCRIPTION:
       return {
         ...state,
-        activeAudioDescription: action.activeAudioDescription
+        activeAudioDescription: action.activeAudioDescription,
       };
     default:
       return state;
