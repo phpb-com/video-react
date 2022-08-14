@@ -38,7 +38,7 @@ function baseConfig() {
               shippedProposals: true,
               modules: false,
               targets: {
-                ie: 9,
+                ie: 11,
               },
             },
           ],
