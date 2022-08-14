@@ -1,4 +1,5 @@
 
+@use 'sass:math';
 @mixin hide-visually {
   border: 0;
   clip: rect(0 0 0 0);
@@ -100,7 +101,7 @@
 // Fill the width of the containing element and use padding to create the
 // desired aspect ratio. Default to 16x9 unless another ratio is given.
 @mixin apply-aspect-ratio($width, $height) {
-  padding-top: 100% * ($height/$width);
+  padding-top: 100% * math.div($height,$width);
 }
 
 %video-react-fill-parent {

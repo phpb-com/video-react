@@ -1,3 +1,4 @@
+@use 'sass:math';
 .video-react {
   .video-react-big-play-button {
     font-size: 3em;
@@ -27,8 +28,8 @@
     &.video-react-big-play-button-center {
       top: 50%;
       left: 50%;
-      margin-top: -($video-react-big-play-button-height / 2);
-      margin-left: -($video-react-big-play-button-width / 2);
+      margin-top: math.div(-$video-react-big-play-button-height, 2);
+      margin-left: math.div(-$video-react-big-play-button-width, 2);
     }
     &.big-play-button-hide {
       display: none;
