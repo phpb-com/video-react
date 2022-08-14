@@ -18,11 +18,11 @@
     "build-docs": "cross-env WEBPACK_BUILD=production webpack --progress --colors",
     "build": "rollup -c",
     "prebuild": "cross-env BABEL_ENV=lib-dir babel src --out-dir lib --ignore src/__tests__/",
-    "create-release": "npm test && sh ./scripts/release",
+    "create-release": "yarn test && sh ./scripts/release",
     "create-major": "sh ./scripts/release major",
     "create-minor": "sh ./scripts/release minor",
     "create-patch": "sh ./scripts/release patch",
-    "publish-release": "npm test && sh ./scripts/publish",
+    "publish-release": "yarn test && sh ./scripts/publish",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "format-all": "prettier --config .prettierrc.js --write \"src/**/*.{js,json,md}\" \"docs/**/*.{js,json,md}\" \"*.{js,json,md}\"",
@@ -35,7 +35,7 @@
   },
   "lint-staged": {
     "**/*.{js,css,md}": [
-      "npm run format-one",
+      "yarn format-one",
       "git add"
     ]
   },
