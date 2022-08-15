@@ -8,6 +8,10 @@
     ".": {
       "require": "./lib/index.js",
       "import": "./dist/video-react.es.js"
+    },
+    "./dist/video-react.css": {
+      "require": "./dist/video-react.css",
+      "import": "./dist/video-react.css"
     }
   },
   "style": "dist/video-react.css",
@@ -26,7 +30,7 @@
     "publish-release": "yarn test && sh ./scripts/publish",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "format-all": "prettier --config .prettierrc.js --write \"src/**/*.{js,json,md}\" \"docs/**/*.{js,json,md}\" \"*.{js,json,md}\"",
+    "format-all": "prettier --config .prettierrc.js --write \"src/**/*.{js,json,md,ts}\" \"docs/**/*.{js,json,md}\" \"*.{js,json,md}\"",
     "format-one": "prettier --config .prettierrc.js --write"
   },
   "husky": {
