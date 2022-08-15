@@ -1,785 +1,551 @@
-import React, { ReactEventHandler, ReactNode } from 'react';
+// Type definitions for video-react 0.15
+// Project: https://github.com/video-react/video-react
+// Definitions by: Fabio Nettis <https://github.com/fabio-nettis>
+// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare module '@phpb/video-react' {
-  type PreloadType = 'auto' | 'metadata' | 'none';
+import { LegacyRef } from 'react';
 
-  interface PlayerPropsType {
-    children?: any;
+export type PlayerReference = HTMLVideoElement & StaticPlayerInstanceMethods;
 
-    width?: string | number;
-    height?: string | number;
-    fluid?: boolean; // = true;
-    muted?: boolean; // = false;
-    playsInline?: boolean; // = false;
-    aspectRatio?: string; // = 'auto';
-    className?: string;
-    videoId?: string;
+export type StateListener = (current: PlayerState, previous: PlayerState) => void;
 
-    startTime?: number;
-    loop?: boolean;
-    autoPlay?: boolean;
-    src?: string;
-    poster?: string;
-    preload?: PreloadType; // = 'auto';
-
-    onLoadStart?: ReactEventHandler;
-    onWaiting?: ReactEventHandler;
-    onCanPlay?: ReactEventHandler;
-    onCanPlayThrough?: ReactEventHandler;
-    onPlaying?: ReactEventHandler;
-    onEnded?: ReactEventHandler;
-    onSeeking?: ReactEventHandler;
-    onSeeked?: ReactEventHandler;
-    onPlay?: ReactEventHandler;
-    onPause?: ReactEventHandler;
-    onProgress?: ReactEventHandler;
-    onDurationChange?: ReactEventHandler;
-    onError?: ReactEventHandler;
-    onSuspend?: ReactEventHandler;
-    onAbort?: ReactEventHandler;
-    onEmptied?: ReactEventHandler;
-    onStalled?: ReactEventHandler;
-    onLoadedMetadata?: ReactEventHandler;
-    onLoadedData?: ReactEventHandler;
-    onTimeUpdate?: ReactEventHandler;
-    onRateChange?: ReactEventHandler;
-    onVolumeChange?: ReactEventHandler;
-
-    store?: object;
-  }
-
-  class Player extends React.Component<PlayerPropsType> {
-    readonly video: Video;
-
-    getDefaultChildren(originalChildren): Array<React.Component>;
-
-    getChildren(props): Array<React.Component>;
-
-    setWidthOrHeight(style: object, name: string, value: string | number);
-
-    getStyle(): object;
-
-    // get redux state
-    // { player, operation }
-    getState(): object;
-
-    // get playback rate
-    get playbackRate(): number;
-
-    // set playback rate
-    // speed of video
-    set playbackRate(rate: number);
-
-    get muted(): boolean;
-
-    set muted(val: boolean);
-
-    get volume(): number;
-
-    set volume(val: number);
-
-    // video width
-    get videoWidth(): number;
-
-    // video height
-    get videoHeight(): number;
-
-    // play the video
-    play();
-
-    // pause the video
-    pause();
-
-    // Change the video source and re-load the video:
-    load();
-
-    // Add a new text track to the video
-    addTextTrack(
-      kind: TextTrackKind,
-      label?: string,
-      language?: string
-    ): TextTrack;
-
-    // Check if your browser can play different types of video:
-    canPlayType(type: string): CanPlayTypeResult;
-
-    // seek video by time
-    seek(time: number);
-
-    // jump forward x seconds
-    forward(seconds: number);
-
-    // jump back x seconds
-    replay(seconds: number);
-
-    // enter or exist full screen
-    toggleFullscreen();
-
-    // subscribe to player state change
-    subscribeToStateChange(listener: (state: any, prevState: any) => void);
-  }
-
-  interface VideoPropsType {
-    actions?: object;
-    player?: object;
-    children?: any;
-    startTime?: number;
-    loop?: boolean;
-    muted?: boolean;
-    autoPlay?: boolean;
-    playsInline?: boolean;
-    src?: string;
-    poster?: string;
-    className?: string;
-    preload?: PreloadType;
-    crossOrigin?: string;
-
-    onLoadStart?: ReactEventHandler;
-    onWaiting?: ReactEventHandler;
-    onCanPlay?: ReactEventHandler;
-    onCanPlayThrough?: ReactEventHandler;
-    onPlaying?: ReactEventHandler;
-    onEnded?: ReactEventHandler;
-    onSeeking?: ReactEventHandler;
-    onSeeked?: ReactEventHandler;
-    onPlay?: ReactEventHandler;
-    onPause?: ReactEventHandler;
-    onProgress?: ReactEventHandler;
-    onDurationChange?: ReactEventHandler;
-    onError?: ReactEventHandler;
-    onSuspend?: ReactEventHandler;
-    onAbort?: ReactEventHandler;
-    onEmptied?: ReactEventHandler;
-    onStalled?: ReactEventHandler;
-    onLoadedMetadata?: ReactEventHandler;
-    onLoadedData?: ReactEventHandler;
-    onTimeUpdate?: ReactEventHandler;
-    onRateChange?: ReactEventHandler;
-    onVolumeChange?: ReactEventHandler;
-    onResize?: ReactEventHandler;
-  }
-
-  class Video extends React.Component<VideoPropsType> {
-    // get all video properties
-    getProperties(): any;
-
-    // get playback rate
-    get playbackRate(): number;
-
-    // set playback rate
-    // speed of video
-    set playbackRate(rate: number);
-
-    get muted(): boolean;
-
-    set muted(val: boolean);
-
-    get volume(): number;
-
-    set volume(val: number);
-
-    // video width
-    get videoWidth(): number;
-
-    // video height
-    get videoHeight(): number;
-
-    // play the video
-    play();
-
-    // pause the video
-    pause();
-
-    // Change the video source and re-load the video:
-    load();
-
-    // Add a new text track to the video
-    addTextTrack(
-      kind: TextTrackKind,
-      label?: string,
-      language?: string
-    ): TextTrack;
-
-    // Check if your browser can play different types of video:
-    canPlayType(type: string): CanPlayTypeResult;
-
-    // toggle play
-    togglePlay();
-
-    // seek video by time
-    seek(time: number);
-
-    // jump forward x seconds
-    forward(seconds: number);
-
-    // jump back x seconds
-    replay(seconds: number);
-
-    // enter or exist full screen
-    toggleFullscreen();
-  }
-
-  interface BigPlayButtonPropsType {
-    actions?: object;
-    player?: object;
-    position?: 'center' | 'left-top'; // = 'left';
-    className?: string;
-  }
-
-  class BigPlayButton extends React.Component<BigPlayButtonPropsType> { }
-
-  interface LoadingSpinnerPropsType {
-    player?: object;
-    className?: string;
-  }
-  class LoadingSpinner extends React.Component<LoadingSpinnerPropsType> { }
-
-  interface PosterImagePropsType {
-    poster?: string;
-    player?: object;
-    actions?: object;
-    className?: string;
-  }
-  class PosterImage extends React.Component<PosterImagePropsType> { }
-
-  interface BezelPropsType {
-    manager?: object;
-    className?: string;
-  }
-  class Bezel extends React.Component<BezelPropsType> { }
-
-  interface ShortcutPropsType {
-    clickable?: boolean; // = true;
-    dblclickable?: boolean; // = true;
-    manager?: object;
-    actions?: object;
-    player?: object;
-    shortcuts?: Array<any>;
-  }
-  class Shortcut extends React.Component<ShortcutPropsType> { }
-
-  interface ControlBarPropsType {
-    children?: any;
-    autoHide?: boolean; // = true;
-    autoHideTime?: number; // used in Player
-    disableDefaultControls?: boolean;
-    disableCompletely?: boolean; // = false;
-    className?: string;
-  }
-  class ControlBar extends React.Component<ControlBarPropsType> { }
-
-  interface PlayTogglePropsType {
-    actions?: object;
-    player?: object;
-    className?: string;
-  }
-  class PlayToggle extends React.Component<PlayTogglePropsType> { }
-
-  type ForwardSecondsType = 5 | 10 | 30;
-  interface ForwardControlPropsType {
-    actions?: object;
-    className?: string;
-    seconds?: ForwardSecondsType; // = 10;
-  }
-  class ForwardControl extends React.Component<ForwardControlPropsType> { }
-
-  interface ReplayControlPropsType {
-    actions?: object;
-    className?: string;
-    seconds?: ForwardSecondsType; // = 10;
-  }
-  class ReplayControl extends React.Component<ReplayControlPropsType> { }
-
-  interface FullscreenTogglePropsType {
-    actions?: object;
-    player?: object;
-    className?: string;
-  }
-  class FullscreenToggle extends React.Component<FullscreenTogglePropsType> { }
-
-  interface ProgressControlPropsType {
-    player?: object;
-    className?: string;
-  }
-  class ProgressControl extends React.Component<ProgressControlPropsType> { }
-
-  interface SeekBarPropsType {
-    player?: object;
-    mouseTime?: object;
-    actions?: object;
-    className?: string;
-  }
-  class SeekBar extends React.Component<SeekBarPropsType> {
+export interface StaticPlayerInstanceMethods {
     /**
-     * Get percentage of video played
-     *
-     * @return {Number} Percentage played
-     * @method getPercent
+     * Get the redux State.
      */
-    getPercent(): number;
-  }
-
-  interface SliderPropsType {
-    className?: string;
-    onMouseDown?: ReactEventHandler;
-    onMouseMove?: ReactEventHandler;
-    stepForward?: Function;
-    stepBack?: Function;
-    sliderActive?: ReactEventHandler;
-    sliderInactive?: ReactEventHandler;
-    onMouseUp?: ReactEventHandler;
-    onFocus?: ReactEventHandler;
-    onBlur?: ReactEventHandler;
-    onClick?: ReactEventHandler;
-    getPercent?: () => number;
-    vertical?: boolean;
-    children?: ReactNode;
-    label?: string;
-    valuenow?: string;
-    valuetext?: string;
-  }
-  class Slider extends React.Component<SliderPropsType> { }
-
-  interface PlayProgressBarPropsType {
-    currentTime?: number;
-    duration?: number;
-    percentage?: string;
-    className?: string;
-  }
-  class PlayProgressBar extends React.Component<PlayProgressBarPropsType> { }
-
-  interface LoadProgressBarPropsType {
-    duration?: number;
-    buffered?: object;
-    className?: string;
-  }
-  const LoadProgressBar: React.FC<LoadProgressBarPropsType>;
-
-  interface MouseTimeDisplayPropsType {
-    duration?: number;
-    mouseTime?: {
-      time: number;
-      position: number;
-    };
-    className?: string;
-    text?: string;
-  }
-  const MouseTimeDisplay: React.FC<MouseTimeDisplayPropsType>;
-
-  interface RemainingTimeDisplayPropsType {
-    player?: {
-      currentTime: number;
-      duration: number;
-    };
-    className?: string;
-  }
-  const RemainingTimeDisplay: React.FC<RemainingTimeDisplayPropsType>;
-
-  interface CurrentTimeDisplayPropsType {
-    player?: {
-      currentTime: number;
-      duration: number;
-    };
-    className?: string;
-  }
-  const CurrentTimeDisplay: React.FC<CurrentTimeDisplayPropsType>;
-
-  interface DurationDisplayPropsType {
-    player?: {
-      duration: number;
-    };
-    className?: string;
-  }
-  const DurationDisplay: React.FC<DurationDisplayPropsType>;
-
-  interface TimeDividerPropsType {
-    separator?: string;
-    className?: string;
-  }
-  const TimeDivider: React.FC<TimeDividerPropsType>;
-
-  interface VolumeMenuButtonPropsType {
-    player?: {
-      volume: number;
-      muted: boolean;
-    };
-    actions?: object;
-    vertical?: boolean;
-    className?: string;
-    alwaysShowVolume?: boolean;
-  }
-  class VolumeMenuButton extends React.Component<VolumeMenuButtonPropsType> {
-    get volumeLevel(): number;
-  }
-
-  interface PlaybackRateMenuButtonPropsType {
-    player?: object;
-    actions?: object;
-    rates?: Array<number>; // = [2, 1.5, 1.25, 1, 0.5, 0.25];
-    className?: string;
-  }
-  class PlaybackRateMenuButton extends React.Component<
-    PlaybackRateMenuButtonPropsType
-  > { }
-
-  interface ClosedCaptionButtonPropsType {
-    player?: object;
-    actions?: object;
-    className?: string;
-    offMenuText?: string; // = 'Off';
-    showOffMenu?: boolean; // = true;
-    kinds?: Array<string>; // = ['captions', 'subtitles']; // `kind`s of TextTrack to look for to associate it with this menu.
-  }
-  class ClosedCaptionButton extends React.Component<
-    ClosedCaptionButtonPropsType
-  > { }
-
-  class PlaybackRate extends React.Component { }
-
-  interface MenuButtonPropsType {
-    inline?: boolean;
-    items?: Array<any>;
-    className?: string;
-    onSelectItem?: ReactEventHandler;
-    children?: any;
-    selectedIndex?: number;
-  }
-  class MenuButton extends React.Component<MenuButtonPropsType> { }
-
-  namespace playerActions {
-    type OPERATE = '@phpb/video-react/OPERATE';
-    type FULLSCREEN_CHANGE = '@phpb/video-react/FULLSCREEN_CHANGE';
-    type PLAYER_ACTIVATE = '@phpb/video-react/PLAYER_ACTIVATE';
-    type USER_ACTIVATE = '@phpb/video-react/USER_ACTIVATE';
-
-    function handleFullscreenChange(
-      isFullscreen: boolean
-    ): {
-      type: FULLSCREEN_CHANGE;
-      isFullscreen;
-    };
-
-    function activate(
-      activity
-    ): {
-      type: PLAYER_ACTIVATE;
-      activity;
-    };
-
-    function userActivate(
-      activity
-    ): {
-      type: USER_ACTIVATE;
-      activity;
-    };
-
-    function play(operation: {
-      action: 'play';
-      source: string;
-    }): {
-      type: OPERATE;
-      operation;
-    };
-
-    function pause(operation: {
-      action: 'pause';
-      source: string;
-    }): {
-      type: OPERATE;
-      operation;
-    };
-
-    function togglePlay(operation?: {
-      action: 'toggle-play';
-      source: string;
-    }): {
-      type: OPERATE;
-      operation;
-    };
-
-    // seek video by time
-    function seek(
-      time: number,
-      operation?: {
-        action: 'seek';
-        source: string;
-      }
-    ): {
-      type: OPERATE;
-      operation;
-    };
-
-    // jump forward x seconds
-    function forward(
-      seconds: number,
-      operation?: {
-        action: string;
-        source: string;
-      }
-    ): {
-      type: OPERATE;
-      operation;
-    };
-
-    // jump back x seconds
-    function replay(
-      seconds: number,
-      operation?: {
-        action: string;
-        source: string;
-      }
-    ): {
-      type: OPERATE;
-      operation;
-    };
-
-    function changeRate(
-      rate: number,
-      operation?: {
-        action: 'change-rate';
-        source: string;
-      }
-    ): {
-      type: OPERATE;
-      operation;
-    };
-
-    function changeVolume(
-      volume: number,
-      operation?: {
-        action: 'change-volume';
-        source: string;
-      }
-    ): {
-      type: OPERATE;
-      operation;
-    };
-
-    function mute(
-      muted: boolean,
-      operation?: {
-        action: 'muted' | 'unmuted';
-        source: string;
-      }
-    ): {
-      type: OPERATE;
-      operation;
-    };
-
-    function toggleFullscreen(player): { type: string;[key: string]: any };
-  }
-
-  namespace videoActions {
-    type LOAD_START = '@phpb/video-react/LOAD_START';
-    type CAN_PLAY = '@phpb/video-react/CAN_PLAY';
-    type WAITING = '@phpb/video-react/WAITING';
-    type CAN_PLAY_THROUGH = '@phpb/video-react/CAN_PLAY_THROUGH';
-    type PLAYING = '@phpb/video-react/PLAYING';
-    type PLAY = '@phpb/video-react/PLAY';
-    type PAUSE = '@phpb/video-react/PAUSE';
-    type END = '@phpb/video-react/END';
-    type SEEKING = '@phpb/video-react/SEEKING';
-    type SEEKED = '@phpb/video-react/SEEKED';
-    type SEEKING_TIME = '@phpb/video-react/SEEKING_TIME';
-    type END_SEEKING = '@phpb/video-react/END_SEEKING';
-    type DURATION_CHANGE = '@phpb/video-react/DURATION_CHANGE';
-    type TIME_UPDATE = '@phpb/video-react/TIME_UPDATE';
-    type VOLUME_CHANGE = '@phpb/video-react/VOLUME_CHANGE';
-    type PROGRESS_CHANGE = '@phpb/video-react/PROGRESS_CHANGE';
-    type RATE_CHANGE = '@phpb/video-react/RATE_CHANGE';
-    type SUSPEND = '@phpb/video-react/SUSPEND';
-    type ABORT = '@phpb/video-react/ABORT';
-    type EMPTIED = '@phpb/video-react/EMPTIED';
-    type STALLED = '@phpb/video-react/STALLED';
-    type LOADED_META_DATA = '@phpb/video-react/LOADED_META_DATA';
-    type LOADED_DATA = '@phpb/video-react/LOADED_DATA';
-    type RESIZE = '@phpb/video-react/RESIZE';
-    type ERROR = '@phpb/video-react/ERROR';
-    type ACTIVATE_TEXT_TRACK = '@phpb/video-react/ACTIVATE_TEXT_TRACK';
-
-    function handleLoadStart(
-      videoProps
-    ): {
-      type: LOAD_START;
-      videoProps;
-    };
-
-    function handleCanPlay(
-      videoProps
-    ): {
-      type: CAN_PLAY;
-      videoProps;
-    };
-
-    function handleWaiting(
-      videoProps
-    ): {
-      type: WAITING;
-      videoProps;
-    };
-
-    function handleCanPlayThrough(
-      videoProps
-    ): {
-      type: CAN_PLAY_THROUGH;
-      videoProps;
-    };
-
-    function handlePlaying(
-      videoProps
-    ): {
-      type: PLAYING;
-      videoProps;
-    };
-
-    function handlePlay(
-      videoProps
-    ): {
-      type: PLAY;
-      videoProps;
-    };
-
-    function handlePause(
-      videoProps
-    ): {
-      type: PAUSE;
-      videoProps;
-    };
-
-    function handleEnd(
-      videoProps
-    ): {
-      type: END;
-      videoProps;
-    };
-
-    function handleSeeking(
-      videoProps
-    ): {
-      type: SEEKING;
-      videoProps;
-    };
-
-    function handleSeeked(
-      videoProps
-    ): {
-      type: SEEKED;
-      videoProps;
-    };
-
-    function handleDurationChange(
-      videoProps
-    ): {
-      type: DURATION_CHANGE;
-      videoProps;
-    };
-
-    function handleTimeUpdate(
-      videoProps
-    ): {
-      type: TIME_UPDATE;
-      videoProps;
-    };
-
-    function handleVolumeChange(
-      videoProps
-    ): {
-      type: VOLUME_CHANGE;
-      videoProps;
-    };
-
-    function handleProgressChange(
-      videoProps
-    ): {
-      type: PROGRESS_CHANGE;
-      videoProps;
-    };
-
-    function handleRateChange(
-      videoProps
-    ): {
-      type: RATE_CHANGE;
-      videoProps;
-    };
-
-    function handleSuspend(
-      videoProps
-    ): {
-      type: SUSPEND;
-      videoProps;
-    };
-
-    function handleAbort(
-      videoProps
-    ): {
-      type: ABORT;
-      videoProps;
-    };
-
-    function handleEmptied(
-      videoProps
-    ): {
-      type: EMPTIED;
-      videoProps;
-    };
-
-    function handleStalled(
-      videoProps
-    ): {
-      type: STALLED;
-      videoProps;
-    };
-
-    function handleLoadedMetaData(
-      videoProps
-    ): {
-      type: LOADED_META_DATA;
-      videoProps;
-    };
-
-    function handleLoadedData(
-      videoProps
-    ): {
-      type: LOADED_DATA;
-      videoProps;
-    };
-
-    function handleResize(
-      videoProps
-    ): {
-      type: RESIZE;
-      videoProps;
-    };
-
-    function handleError(
-      videoProps
-    ): {
-      type: ERROR;
-      videoProps;
-    };
-
-    function handleSeekingTime(
-      time
-    ): {
-      type: SEEKING_TIME;
-      time;
-    };
-
-    function handleEndSeeking(
-      time
-    ): {
-      type: END_SEEKING;
-      time;
-    };
-
-    function activateTextTrack(
-      textTrack
-    ): {
-      type: ACTIVATE_TEXT_TRACK;
-      textTrack;
-    };
-  }
-
-  function playerReducer(state: any, action: any);
-  function operationReducer(state: any, action: any);
+    getState: () => PlayerState;
+    /**
+     * Play the video.
+     */
+    play: () => void;
+    /**
+     * Pause the video.
+     */
+    pause: () => void;
+    /**
+     * Change the video source and re-load the video
+     */
+    load: () => void;
+    /**
+     * Add a new text track to the video
+     */
+    addTextTrack: () => void;
+    /**
+     * Check if your browser can play different types of videos
+     */
+    canPlayType: () => void;
+    /**
+     * Seek video by time (seconds)
+     */
+    seek: (time: number) => void;
+    /**
+     * Jump forward x seconds
+     */
+    forward: (seconds: number) => void;
+    /**
+     * Jump back x seconds
+     */
+    replay: (seconds: number) => void;
+    /**
+     * Enter or exist full screen
+     */
+    toggleFullscreen: () => void;
+    /**
+     * Subscribe to the player state changes.
+     */
+    subscribeToStateChange: (listener: StateListener) => void;
 }
+
+export interface PlayerState {
+    /**
+     * Returns the URL of the current video
+     */
+    currentSrc: string;
+    /**
+     * Returns the length of the current video (in seconds)
+     */
+    duration: number;
+    /**
+     * Returns the current playback position in the video (in seconds)
+     */
+    currentTime: number;
+    /**
+     * Returns the current seeking position in the video (in seconds)
+     */
+    seekingTime: number;
+    /**
+     * Returns a TimeRanges object representing the buffered parts of the video
+     */
+    buffered: Record<any, any>;
+    /**
+     * Returns whether the player needs to buffer the next frame
+     */
+    waiting: boolean;
+    /**
+     * Returns whether the user is currently seeking in the video
+     */
+    seeking: boolean;
+    /**
+     * Returns whether the player has been paused
+     */
+    paused: boolean;
+    /**
+     * Returns whether the player has been paused by the player itself
+     */
+    autoPaused: boolean;
+    /**
+     * Returns whether the playback of the video has ended or not
+     */
+    ended: boolean;
+    /**
+     * Returns the speed of the video playback
+     */
+    playbackRate: number;
+    /**
+     * Returns whether the video is muted or not
+     */
+    muted: boolean;
+    /**
+     * Returns the volume of the video.
+     */
+    volume: number;
+    /**
+     * Returns the current ready state of the video
+     */
+    readyState: number;
+    /**
+     * Returns the current network state of the video
+     */
+    networkState: number;
+    /**
+     * Returns the volume of the video
+     */
+    videoWidth: number;
+    /**
+     * Returns the height of the video
+     */
+    videoHeight: number;
+    /**
+     * Returns whether the video has been started
+     */
+    hasStarted: boolean;
+    /**
+     * Returns whether the user is in activity.
+     */
+    userActivity: boolean;
+    /**
+     * Returns whether the player is in activity.
+     */
+    isActive: boolean;
+    /**
+     * Returns whether the player is in fullscreen.
+     */
+    isFullscreen: boolean;
+    /**
+     * Set the id of the video element.
+     */
+    videoId: string;
+}
+
+export interface PlayerActions {
+    /**
+     * Get the redux State.
+     */
+    getState: () => PlayerState;
+    /**
+     * Play the video.
+     */
+    play: () => void;
+    /**
+     * Pause the video.
+     */
+    pause: () => void;
+    /**
+     * Change the video source and re-load the video
+     */
+    load: () => void;
+    /**
+     * Add a new text track to the video
+     */
+    addTextTrack: () => void;
+    /**
+     * Check if your browser can play different types of videos
+     */
+    canPlayType: () => void;
+    /**
+     * Seek video by time (seconds)
+     */
+    seek: (time: number) => void;
+    /**
+     * Jump forward x seconds
+     */
+    forward: (seconds: number) => void;
+    /**
+     * Jump back x seconds
+     */
+    replay: (seconds: number) => void;
+    /**
+     * Enter or exist full screen
+     */
+    toggleFullscreen: () => void;
+    /**
+     * Subscribe to the player state changes.
+     */
+    subscribeToStateChange: (listener: StateListener) => void;
+}
+
+export interface PlayerProps {
+    ref?: LegacyRef<PlayerReference> | undefined;
+    /**
+     * In fluid mode, it’s 100% wide all the time, the height will be
+     * calculated by the video's ratio.
+     */
+    fluid?: boolean;
+    /**
+     * The width value of video, could be an number or percent or auto.
+     * (This attribute is effective only if you set fluid as false)
+     */
+    width?: number;
+    /**
+     * The height value of video, could be an number or percent or auto.
+     * (This attribute is effective only if you set fluid as false)
+     */
+    height?: number;
+    /**
+     * The URL of the video to embed. This is optional; you may instead
+     * use the <source> element within the Player block to specify the
+     * video to embed.
+     */
+    src?: string;
+    /**
+     * A URL indicating a poster frame to show until the user plays or
+     * seeks. If this attribute isn't specified, nothing is displayed
+     * until the first frame is available; then the first frame is shown
+     * as the poster frame.
+     */
+    poster?: string;
+    /**
+     * This enumerated attribute is intended to provide a hint to the
+     * browser about what the author thinks will lead to the best user
+     * experience. It may have one of the following values:
+     *
+     * - none: indicates that the video should not be preloaded.
+     * - metadata: indicates that only video metadata should be preloaded.
+     * - auto: indicates that both video and audio should be preloaded.
+     * (even if the user is not interacting with the video)
+     */
+    preload?: 'none' | 'metadata' | 'auto';
+    /**
+     * A Boolean attribute which indicates the default setting of the audio
+     * contained in the video. If set, the audio will be initially silenced.
+     * Its default value is false, meaning that the audio will be played when
+     * the video is played.
+     */
+    muted?: boolean;
+    /**
+     * [iOS only] Determines whether HTML5 videos play inline or use the native
+     * full-screen controller.
+     */
+    playsInline?: boolean;
+    /**
+     * The aspect ratio is the width of the video divided by its height.
+     * Possible values:
+     *
+     * - auto
+     * - 16:9
+     * - 4:3
+     */
+    aspectRatio?: string;
+    /**
+     * If specified, the video automatically begins to play back as soon as
+     * it can do so without stopping to finish loading the data.
+     */
+    autoPlay?: boolean;
+
+    /**
+     * Seek the Video at A Specific Time On Load
+     */
+    startTime?: number;
+
+    children?: React.ReactNode;
+}
+
+export interface ShortcutItem {
+    /**
+     * The key code for the shortcut.
+     */
+    keyCode: number;
+    /**
+     * Defines if the action fires when the CTRL
+     * key is pressed.
+     */
+    ctrl: boolean;
+    /**
+     * The function to control the player when
+     * the shortcut is pressed.
+     */
+    handle: (state: PlayerState, actions: PlayerActions) => void;
+}
+
+export interface ShortcutProps {
+    /**
+     * Allow click to play/pause, default: `true`
+     */
+    clickable?: boolean;
+    /**
+     * Allow double click to toggle fullscreen state, default: `true`
+     */
+    dblclickable?: boolean;
+    /**
+     * Add your own shortcuts
+     */
+    shortcuts?: ShortcutItem[];
+}
+
+export interface PosterImageProps {
+    /**
+     * A URL indicating a poster frame to show until the user plays or
+     * seeks. If this attribute isn't specified, nothing is displayed
+     * until the first frame is available; then the first frame is shown
+     * as the poster frame.
+     */
+    poster: string;
+}
+
+export interface ControlBarProps {
+    /**
+     * Hide the control bar automatically after the player is inactive,
+     * default: `true`
+     */
+    autoHide?: boolean;
+    /**
+     * The waiting time for auto hide after player is inactive (in milliseconds),
+     * default: `3000`
+     */
+    autoHideTime?: number;
+    /**
+     * Do not render default controls, only use custom ones provided as children
+     * of `<ControlBar>`
+     */
+    disableDefaultControls?: boolean;
+    /**
+     * Do not render the control bar if set it to true, default: `false`
+     */
+    disableCompletely?: boolean;
+
+    className?: string;
+
+    children?: React.ReactNode;
+}
+
+export interface ReplayControlProps {
+    /**
+     * How many seconds to go forward, default: `10`
+     */
+    seconds?: 5 | 10 | 30;
+}
+
+export interface BigPlayButtonProps {
+    /**
+     * Determines the position of the big play button.
+     */
+    position?: 'center' | 'left' | 'left-top' | 'left-bottom' | 'right' | 'right-top' | 'right-bottom';
+    className?: string;
+}
+
+export interface ForwardControlProps {
+    /**
+     * How many seconds to go forward, default: `10`
+     */
+    seconds?: 5 | 10 | 30;
+}
+
+export interface VolumeMenuButtonProps {
+    /**
+     * The direction where Volume Bar popup, default: `false`
+     */
+    vertical?: boolean;
+}
+
+export interface PlaybackRateMenuButtonProps {
+    /**
+     * The direction where Volume Bar popup, default:
+     * `[2, 1.5, 1.25, 1, 0.5, 0.25]`
+     */
+    rates?: number[];
+}
+
+/**
+ * ### Component - Player
+ *
+ * Player is the root component of the Video-React player. All the others
+ * components should be in this component.
+ *
+ * #### Reference
+ *
+ * https://video-react.js.org/components/player
+ */
+export function Player(props: PlayerProps): JSX.Element;
+
+/**
+ * ### Component - Shortcut
+ *
+ * Using keyboard shortcut to control the player.
+ *
+ * #### Reference
+ *
+ * https://video-react.js.org/components/shortcut
+ */
+export function Shortcut(props: ShortcutProps): JSX.Element;
+
+/**
+ * ### Component - BigPlayButton
+ *
+ * Initial play button. Shows before the video has played. The hiding of the
+ * big play button is done via CSS and player states.
+ *
+ * #### Reference
+ *
+ * https://video-react.js.org/components/big-play-button
+ */
+export function BigPlayButton(props: BigPlayButtonProps): JSX.Element;
+
+/**
+ * ### Component - PosterImage
+ *
+ * The PosterImage specifies an image to be shown while the video is downloading,
+ * or until the user hits the play button. If this is not included, the first
+ * frame of the video will be used instead.
+ *
+ * #### Reference
+ *
+ * https://video-react.js.org/components/poster-image
+ */
+export function PosterImage(props: PosterImageProps): JSX.Element;
+
+/**
+ * ### Component - LoadingSpinner
+ *
+ * There would be a loading spinner to display before the video is loaded.
+ *
+ * #### Reference
+ *
+ * https://video-react.js.org/components/loading-spinner
+ */
+export function LoadingSpinner(): JSX.Element;
+
+/**
+ * ### Component - ControlBar
+ *
+ * The HTML5 video's control bar is hidden, the player offers a customizable
+ * control bar to allow the user to control video playback, including volume,
+ * seeking, and pause/resume playback.
+ *
+ * #### Reference
+ *
+ * https://video-react.js.org/components/control-bar
+ */
+export function ControlBar(props: ControlBarProps): JSX.Element;
+
+/**
+ * ### Component - PlayToggle
+ *
+ * A button component to toggle between play and pause.
+ *
+ * #### Reference
+ *
+ * https://video-react.js.org/components/play-toggle
+ */
+export function PlayToggle(): JSX.Element;
+
+/**
+ * ### Component - ReplayControl
+ *
+ * A button in control bar to go forward 5/10/30 seconds.
+ *
+ * #### Reference
+ *
+ * https://video-react.js.org/components/replay-control
+ */
+export function ReplayControl(props: ReplayControlProps): JSX.Element;
+
+/**
+ * ### Component - VolumeMenuButton
+ *
+ * A button in control bar to go forward 5/10/30 seconds.
+ *
+ * #### Reference
+ *
+ * https://video-react.js.org/components/volume-menu-button
+ */
+export function ForwardControl(props: ForwardControlProps): JSX.Element;
+
+/**
+ * ### Component - VolumeMenuButton
+ *
+ * Button for volume popup.
+ *
+ * #### Reference
+ *
+ * https://video-react.js.org/components/volume-menu-button
+ */
+export function VolumeMenuButton(props: VolumeMenuButtonProps): JSX.Element;
+
+export interface ClosedCaptionButtonProps extends ControlBarControlProps {
+    actions?: any;
+    offMenuText?: string;
+    showOffMenu?: boolean;
+    kinds?: string[];
+}
+/**
+ * ### Component - ClosedCaptionButton
+ *
+ * There is an example on how to add a ClosedCaption button component
+ * into Video-React Player:
+ *
+ * #### Reference
+ *
+ * https://video-react.js.org/components/closed-caption-button
+ */
+export function ClosedCaptionButton(props: ClosedCaptionButtonProps): JSX.Element;
+
+/**
+ * ### Component - PlaybackRateMenuButton
+ *
+ * The dropdown menu to control the playback rates.
+ *
+ * #### Reference
+ *
+ * https://video-react.js.org/components/playback-rate-menu-button
+ */
+export function PlaybackRateMenuButton(props: PlaybackRateMenuButtonProps): JSX.Element;
+
+/**
+ * CurrentTimeDisplay, TimeDivider, DurationDisplay, ProgressControl
+ *
+ * Components that can be optionally included in the ControlBar to customize it.
+ *
+ * Reference: https://video-react.js.org/customize/enable-disable-components/
+ */
+
+export interface ControlBarControlProps {
+    order?: number;
+    className?: string;
+    player?: typeof Player;
+}
+
+export function CurrentTimeDisplay(props: ControlBarControlProps): JSX.Element;
+
+export function DurationDisplay(props: ControlBarControlProps): JSX.Element;
+
+export function ProgressControl(props: ControlBarControlProps): JSX.Element;
+
+export interface TimeDividerProps extends ControlBarControlProps {
+    separator?: string;
+}
+export function TimeDivider(props: TimeDividerProps): JSX.Element;
+
+export interface FullScreenToggleProps extends ControlBarControlProps {
+    actions: any;
+}
+export function FullscreenToggle(props: FullScreenToggleProps): JSX.Element;
