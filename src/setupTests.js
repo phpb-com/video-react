@@ -1,6 +1,10 @@
 /* eslint import/no-extraneous-dependencies: "off" */
 import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@zarconontol/enzyme-adapter-react-18';
+
+import { TextEncoder } from 'util';
+
+global.TextEncoder = TextEncoder
 
 configure({ adapter: new Adapter() });
 

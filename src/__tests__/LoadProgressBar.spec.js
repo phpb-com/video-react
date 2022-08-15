@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+*/
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import LoadProgressBar from '../components/control-bar/LoadProgressBar';
@@ -8,8 +11,8 @@ describe('LoadProgressBar', () => {
       <LoadProgressBar
         buffered={{
           length: 1,
-          start: () => {},
-          end: () => {},
+          start: () => { },
+          end: () => { },
         }}
         duration={1000}
       />
@@ -22,8 +25,8 @@ describe('LoadProgressBar', () => {
       <LoadProgressBar
         buffered={{
           length: 1,
-          start: () => {},
-          end: () => {},
+          start: () => { },
+          end: () => { },
         }}
         duration={1000}
       />
@@ -36,8 +39,8 @@ describe('LoadProgressBar', () => {
       <LoadProgressBar
         buffered={{
           length: 1,
-          start: () => {},
-          end: () => {},
+          start: () => { },
+          end: () => { },
         }}
         duration={1000}
       />
