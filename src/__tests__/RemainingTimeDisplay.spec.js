@@ -1,6 +1,6 @@
 /**
  * @jest-environment jsdom
-*/
+ */
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import RemainingTimeDisplay from '../components/time-controls/RemainingTimeDisplay';

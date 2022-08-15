@@ -1,6 +1,6 @@
 /**
  * @jest-environment jsdom
-*/
+ */
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import PlayProgressBar from '../components/control-bar/PlayProgressBar';

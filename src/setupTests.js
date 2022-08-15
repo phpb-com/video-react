@@ -4,7 +4,7 @@ import Adapter from '@zarconontol/enzyme-adapter-react-18';
 
 import { TextEncoder } from 'util';
 
-global.TextEncoder = TextEncoder
+global.TextEncoder = TextEncoder;
 
 configure({ adapter: new Adapter() });
 

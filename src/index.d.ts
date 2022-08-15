@@ -564,4 +564,4 @@ export interface FullScreenToggleProps extends ControlBarControlProps {
 }
 export function FullscreenToggle(props: FullScreenToggleProps): JSX.Element;
 
-declare module '@phpb/video-react';
+export declare module '@phpb/video-react';
