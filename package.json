@@ -3,8 +3,8 @@
   "version": "1.0.11",
   "description": "Video-React is a web video player built from the ground up for an HTML5 world using React library.",
   "main": "lib/index.js",
-  "typings": "dist/index",
-  "types": "./src/index.d.ts",
+  "typings": "lib/index",
+  "types": "./index.d.ts",
   "exports": {
     ".": {
       "require": "./lib/index.js",
@@ -53,6 +53,7 @@
     "lib",
     "dist",
     "styles",
+    "index.d.ts",
     "tonic-example.js"
   ],
   "keywords": [
