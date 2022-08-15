@@ -1,6 +1,6 @@
 {
-  "name": "video-react",
-  "version": "0.14.1",
+  "name": "@phpb/video-react",
+  "version": "1.00.0",
   "description": "Video-React is a web video player built from the ground up for an HTML5 world using React library.",
   "main": "lib/index.js",
   "exports": {
@@ -77,9 +77,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/video-react/video-react/issues"
+    "url": "https://github.com/phpb-com/video-react/issues"
   },
-  "homepage": "https://github.com/video-react/video-react#readme",
+  "homepage": "https://github.com/phpb-com/video-react#readme",
   "tonicExampleFilename": "tonic-example.js",
   "dependencies": {
     "@babel/runtime": "^7.4.5",
@@ -89,8 +89,8 @@
     "redux": "^4.0.1"
   },
   "peerDependencies": {
-    "react": "^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0",
-    "react-dom": "^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0"
+    "react": "^16.0.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.0.0 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
     "@babel/cli": "7.18.10",

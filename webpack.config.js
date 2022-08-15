@@ -7,7 +7,7 @@ const env = process.env.WEBPACK_BUILD || process.env.NODE_ENV || 'development';
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const TerserPlugin = require("terser-webpack-plugin");
+const TerserPlugin = require('terser-webpack-plugin');
 
 const outputFilename = 'video-react';
 const minimizer = env === 'production' ? [new TerserPlugin()] : [];
@@ -68,7 +68,7 @@ const config = {
       patterns: [
         { from: './docs/static', to: 'assets' },
         { from: './dist', to: 'assets' },
-      ]
+      ],
     }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(env),
