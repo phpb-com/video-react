@@ -1,6 +1,6 @@
 import React, { ReactEventHandler, ReactNode } from 'react';
 
-declare module 'video-react' {
+declare module '@phpb/video-react' {
   type PreloadType = 'auto' | 'metadata' | 'none';
 
   interface PlayerPropsType {
@@ -226,13 +226,13 @@ declare module 'video-react' {
     className?: string;
   }
 
-  class BigPlayButton extends React.Component<BigPlayButtonPropsType> {}
+  class BigPlayButton extends React.Component<BigPlayButtonPropsType> { }
 
   interface LoadingSpinnerPropsType {
     player?: object;
     className?: string;
   }
-  class LoadingSpinner extends React.Component<LoadingSpinnerPropsType> {}
+  class LoadingSpinner extends React.Component<LoadingSpinnerPropsType> { }
 
   interface PosterImagePropsType {
     poster?: string;
@@ -240,13 +240,13 @@ declare module 'video-react' {
     actions?: object;
     className?: string;
   }
-  class PosterImage extends React.Component<PosterImagePropsType> {}
+  class PosterImage extends React.Component<PosterImagePropsType> { }
 
   interface BezelPropsType {
     manager?: object;
     className?: string;
   }
-  class Bezel extends React.Component<BezelPropsType> {}
+  class Bezel extends React.Component<BezelPropsType> { }
 
   interface ShortcutPropsType {
     clickable?: boolean; // = true;
@@ -256,7 +256,7 @@ declare module 'video-react' {
     player?: object;
     shortcuts?: Array<any>;
   }
-  class Shortcut extends React.Component<ShortcutPropsType> {}
+  class Shortcut extends React.Component<ShortcutPropsType> { }
 
   interface ControlBarPropsType {
     children?: any;
@@ -266,14 +266,14 @@ declare module 'video-react' {
     disableCompletely?: boolean; // = false;
     className?: string;
   }
-  class ControlBar extends React.Component<ControlBarPropsType> {}
+  class ControlBar extends React.Component<ControlBarPropsType> { }
 
   interface PlayTogglePropsType {
     actions?: object;
     player?: object;
     className?: string;
   }
-  class PlayToggle extends React.Component<PlayTogglePropsType> {}
+  class PlayToggle extends React.Component<PlayTogglePropsType> { }
 
   type ForwardSecondsType = 5 | 10 | 30;
   interface ForwardControlPropsType {
@@ -281,27 +281,27 @@ declare module 'video-react' {
     className?: string;
     seconds?: ForwardSecondsType; // = 10;
   }
-  class ForwardControl extends React.Component<ForwardControlPropsType> {}
+  class ForwardControl extends React.Component<ForwardControlPropsType> { }
 
   interface ReplayControlPropsType {
     actions?: object;
     className?: string;
     seconds?: ForwardSecondsType; // = 10;
   }
-  class ReplayControl extends React.Component<ReplayControlPropsType> {}
+  class ReplayControl extends React.Component<ReplayControlPropsType> { }
 
   interface FullscreenTogglePropsType {
     actions?: object;
     player?: object;
     className?: string;
   }
-  class FullscreenToggle extends React.Component<FullscreenTogglePropsType> {}
+  class FullscreenToggle extends React.Component<FullscreenTogglePropsType> { }
 
   interface ProgressControlPropsType {
     player?: object;
     className?: string;
   }
-  class ProgressControl extends React.Component<ProgressControlPropsType> {}
+  class ProgressControl extends React.Component<ProgressControlPropsType> { }
 
   interface SeekBarPropsType {
     player?: object;
@@ -338,7 +338,7 @@ declare module 'video-react' {
     valuenow?: string;
     valuetext?: string;
   }
-  class Slider extends React.Component<SliderPropsType> {}
+  class Slider extends React.Component<SliderPropsType> { }
 
   interface PlayProgressBarPropsType {
     currentTime?: number;
@@ -346,7 +346,7 @@ declare module 'video-react' {
     percentage?: string;
     className?: string;
   }
-  class PlayProgressBar extends React.Component<PlayProgressBarPropsType> {}
+  class PlayProgressBar extends React.Component<PlayProgressBarPropsType> { }
 
   interface LoadProgressBarPropsType {
     duration?: number;
@@ -420,7 +420,7 @@ declare module 'video-react' {
   }
   class PlaybackRateMenuButton extends React.Component<
     PlaybackRateMenuButtonPropsType
-  > {}
+  > { }
 
   interface ClosedCaptionButtonPropsType {
     player?: object;
@@ -432,9 +432,9 @@ declare module 'video-react' {
   }
   class ClosedCaptionButton extends React.Component<
     ClosedCaptionButtonPropsType
-  > {}
+  > { }
 
-  class PlaybackRate extends React.Component {}
+  class PlaybackRate extends React.Component { }
 
   interface MenuButtonPropsType {
     inline?: boolean;
@@ -444,13 +444,13 @@ declare module 'video-react' {
     children?: any;
     selectedIndex?: number;
   }
-  class MenuButton extends React.Component<MenuButtonPropsType> {}
+  class MenuButton extends React.Component<MenuButtonPropsType> { }
 
   namespace playerActions {
-    type OPERATE = 'video-react/OPERATE';
-    type FULLSCREEN_CHANGE = 'video-react/FULLSCREEN_CHANGE';
-    type PLAYER_ACTIVATE = 'video-react/PLAYER_ACTIVATE';
-    type USER_ACTIVATE = 'video-react/USER_ACTIVATE';
+    type OPERATE = '@phpb/video-react/OPERATE';
+    type FULLSCREEN_CHANGE = '@phpb/video-react/FULLSCREEN_CHANGE';
+    type PLAYER_ACTIVATE = '@phpb/video-react/PLAYER_ACTIVATE';
+    type USER_ACTIVATE = '@phpb/video-react/USER_ACTIVATE';
 
     function handleFullscreenChange(
       isFullscreen: boolean
@@ -566,36 +566,36 @@ declare module 'video-react' {
       operation;
     };
 
-    function toggleFullscreen(player): { type: string; [key: string]: any };
+    function toggleFullscreen(player): { type: string;[key: string]: any };
   }
 
   namespace videoActions {
-    type LOAD_START = 'video-react/LOAD_START';
-    type CAN_PLAY = 'video-react/CAN_PLAY';
-    type WAITING = 'video-react/WAITING';
-    type CAN_PLAY_THROUGH = 'video-react/CAN_PLAY_THROUGH';
-    type PLAYING = 'video-react/PLAYING';
-    type PLAY = 'video-react/PLAY';
-    type PAUSE = 'video-react/PAUSE';
-    type END = 'video-react/END';
-    type SEEKING = 'video-react/SEEKING';
-    type SEEKED = 'video-react/SEEKED';
-    type SEEKING_TIME = 'video-react/SEEKING_TIME';
-    type END_SEEKING = 'video-react/END_SEEKING';
-    type DURATION_CHANGE = 'video-react/DURATION_CHANGE';
-    type TIME_UPDATE = 'video-react/TIME_UPDATE';
-    type VOLUME_CHANGE = 'video-react/VOLUME_CHANGE';
-    type PROGRESS_CHANGE = 'video-react/PROGRESS_CHANGE';
-    type RATE_CHANGE = 'video-react/RATE_CHANGE';
-    type SUSPEND = 'video-react/SUSPEND';
-    type ABORT = 'video-react/ABORT';
-    type EMPTIED = 'video-react/EMPTIED';
-    type STALLED = 'video-react/STALLED';
-    type LOADED_META_DATA = 'video-react/LOADED_META_DATA';
-    type LOADED_DATA = 'video-react/LOADED_DATA';
-    type RESIZE = 'video-react/RESIZE';
-    type ERROR = 'video-react/ERROR';
-    type ACTIVATE_TEXT_TRACK = 'video-react/ACTIVATE_TEXT_TRACK';
+    type LOAD_START = '@phpb/video-react/LOAD_START';
+    type CAN_PLAY = '@phpb/video-react/CAN_PLAY';
+    type WAITING = '@phpb/video-react/WAITING';
+    type CAN_PLAY_THROUGH = '@phpb/video-react/CAN_PLAY_THROUGH';
+    type PLAYING = '@phpb/video-react/PLAYING';
+    type PLAY = '@phpb/video-react/PLAY';
+    type PAUSE = '@phpb/video-react/PAUSE';
+    type END = '@phpb/video-react/END';
+    type SEEKING = '@phpb/video-react/SEEKING';
+    type SEEKED = '@phpb/video-react/SEEKED';
+    type SEEKING_TIME = '@phpb/video-react/SEEKING_TIME';
+    type END_SEEKING = '@phpb/video-react/END_SEEKING';
+    type DURATION_CHANGE = '@phpb/video-react/DURATION_CHANGE';
+    type TIME_UPDATE = '@phpb/video-react/TIME_UPDATE';
+    type VOLUME_CHANGE = '@phpb/video-react/VOLUME_CHANGE';
+    type PROGRESS_CHANGE = '@phpb/video-react/PROGRESS_CHANGE';
+    type RATE_CHANGE = '@phpb/video-react/RATE_CHANGE';
+    type SUSPEND = '@phpb/video-react/SUSPEND';
+    type ABORT = '@phpb/video-react/ABORT';
+    type EMPTIED = '@phpb/video-react/EMPTIED';
+    type STALLED = '@phpb/video-react/STALLED';
+    type LOADED_META_DATA = '@phpb/video-react/LOADED_META_DATA';
+    type LOADED_DATA = '@phpb/video-react/LOADED_DATA';
+    type RESIZE = '@phpb/video-react/RESIZE';
+    type ERROR = '@phpb/video-react/ERROR';
+    type ACTIVATE_TEXT_TRACK = '@phpb/video-react/ACTIVATE_TEXT_TRACK';
 
     function handleLoadStart(
       videoProps

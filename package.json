@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "exports": {
     ".": {
-      "types": "./src/index.d.js",
+      "types": "./src/index.d.ts",
       "require": "./lib/index.js",
       "import": "./dist/video-react.es.js"
     }
