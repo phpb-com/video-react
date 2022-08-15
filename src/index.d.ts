@@ -353,13 +353,13 @@ export interface BigPlayButtonProps {
    * Determines the position of the big play button.
    */
   position?:
-    | 'center'
-    | 'left'
-    | 'left-top'
-    | 'left-bottom'
-    | 'right'
-    | 'right-top'
-    | 'right-bottom';
+  | 'center'
+  | 'left'
+  | 'left-top'
+  | 'left-bottom'
+  | 'right'
+  | 'right-top'
+  | 'right-bottom';
   className?: string;
 }
 
@@ -563,3 +563,5 @@ export interface FullScreenToggleProps extends ControlBarControlProps {
   actions: any;
 }
 export function FullscreenToggle(props: FullScreenToggleProps): JSX.Element;
+
+declare module '@phpb/video-react';
