@@ -2,7 +2,8 @@
   "name": "@phpb/video-react",
   "version": "1.0.8",
   "description": "Video-React is a web video player built from the ground up for an HTML5 world using React library.",
-  "main": "lib/index.js",
+  "main": "lib/index",
+  "typings": "dist/index",
   "types": "./src/index.d.ts",
   "type": "module",
   "exports": {
