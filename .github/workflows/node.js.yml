@@ -30,4 +30,4 @@ jobs:
     - run: yarn prebuild
     - run: yarn build
     - run: yarn test
-    - run: test:coverage -- --runInBand
+    - run: yarn test:coverage -- --runInBand
