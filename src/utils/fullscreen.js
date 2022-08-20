@@ -2,8 +2,8 @@ class Fullscreen {
   request(elm) {
     if (elm.requestFullscreen) {
       elm.requestFullscreen();
-    } else if (elm.webkitEnterFullscreen) {
-      elm.webkitEnterFullscreen();
+    } else if (elm.webkitRequestFullscreen) {
+      elm.webkitRequestFullscreen();
     } else if (elm.mozRequestFullScreen) {
       elm.mozRequestFullScreen();
     } else if (elm.msRequestFullscreen) {
@@ -26,7 +26,7 @@ class Fullscreen {
   get isFullscreen() {
     return (
       document.fullscreenElement ||
-      document.webkitIsFullScreen ||
+      document.webkitFullscreenElement ||
       document.mozFullScreenElement ||
       document.msFullscreenElement
     );
@@ -35,7 +35,7 @@ class Fullscreen {
   get enabled() {
     return (
       document.fullscreenEnabled ||
-      document.webkitSupportsFullscreen ||
+      document.webkitFullscreenEnabled ||
       document.mozFullScreenEnabled ||
       document.msFullscreenEnabled
     );
@@ -43,14 +43,14 @@ class Fullscreen {
 
   addEventListener(handler) {
     document.addEventListener('fullscreenchange', handler);
-    document.addEventListener('onwebkitfullscreenchange', handler);
+    document.addEventListener('webkitfullscreenchange', handler);
     document.addEventListener('mozfullscreenchange', handler);
     document.addEventListener('MSFullscreenChange', handler);
   }
 
   removeEventListener(handler) {
     document.removeEventListener('fullscreenchange', handler);
-    document.removeEventListener('onwebkitfullscreenchange', handler);
+    document.removeEventListener('webkitfullscreenchange', handler);
     document.removeEventListener('mozfullscreenchange', handler);
     document.removeEventListener('MSFullscreenChange', handler);
   }
