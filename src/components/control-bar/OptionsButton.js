@@ -6,7 +6,7 @@ const propTypes = {
   actions: PropTypes.object,
 };
 
-const OptionsButton = (props) => {
+function OptionsButton(props) {
   return (
     <button
       type="button"
@@ -17,7 +17,7 @@ const OptionsButton = (props) => {
       <span className="video-react-control-text">Audio and CC</span>
     </button>
   );
-};
+}
 
 OptionsButton.propTypes = propTypes;
 OptionsButton.displayName = 'OptionsButton';

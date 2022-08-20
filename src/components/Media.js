@@ -577,49 +577,48 @@ export default class Media extends Component {
           {this.renderChildren()}
         </video>
       );
-    } else {
-      return (
-        <audio
-          className={classNames('video-react-video', this.props.className)}
-          id={videoId}
-          crossOrigin={crossOrigin}
-          ref={(c) => {
-            this.video = c;
-          }}
-          muted={muted}
-          preload={preload}
-          loop={loop}
-          playsInline={playsInline}
-          autoPlay={autoPlay}
-          src={src}
-          onLoadStart={this.handleLoadStart}
-          onWaiting={this.handleWaiting}
-          onCanPlay={this.handleCanPlay}
-          onCanPlayThrough={this.handleCanPlayThrough}
-          onPlaying={this.handlePlaying}
-          onEnded={this.handleEnded}
-          onSeeking={this.handleSeeking}
-          onSeeked={this.handleSeeked}
-          onPlay={this.handlePlay}
-          onPause={this.handlePause}
-          onProgress={this.handleProgress}
-          onDurationChange={this.handleDurationChange}
-          onError={this.handleError}
-          onSuspend={this.handleSuspend}
-          onAbort={this.handleAbort}
-          onEmptied={this.handleEmptied}
-          onStalled={this.handleStalled}
-          onLoadedMetadata={this.handleLoadedMetaData}
-          onLoadedData={this.handleLoadedData}
-          onTimeUpdate={this.handleTimeUpdate}
-          onRateChange={this.handleRateChange}
-          onVolumeChange={this.handleVolumeChange}
-          tabIndex="-1"
-        >
-          {this.renderChildren()}
-        </audio>
-      );
     }
+    return (
+      <audio
+        className={classNames('video-react-video', this.props.className)}
+        id={videoId}
+        crossOrigin={crossOrigin}
+        ref={(c) => {
+          this.video = c;
+        }}
+        muted={muted}
+        preload={preload}
+        loop={loop}
+        playsInline={playsInline}
+        autoPlay={autoPlay}
+        src={src}
+        onLoadStart={this.handleLoadStart}
+        onWaiting={this.handleWaiting}
+        onCanPlay={this.handleCanPlay}
+        onCanPlayThrough={this.handleCanPlayThrough}
+        onPlaying={this.handlePlaying}
+        onEnded={this.handleEnded}
+        onSeeking={this.handleSeeking}
+        onSeeked={this.handleSeeked}
+        onPlay={this.handlePlay}
+        onPause={this.handlePause}
+        onProgress={this.handleProgress}
+        onDurationChange={this.handleDurationChange}
+        onError={this.handleError}
+        onSuspend={this.handleSuspend}
+        onAbort={this.handleAbort}
+        onEmptied={this.handleEmptied}
+        onStalled={this.handleStalled}
+        onLoadedMetadata={this.handleLoadedMetaData}
+        onLoadedData={this.handleLoadedData}
+        onTimeUpdate={this.handleTimeUpdate}
+        onRateChange={this.handleRateChange}
+        onVolumeChange={this.handleVolumeChange}
+        tabIndex="-1"
+      >
+        {this.renderChildren()}
+      </audio>
+    );
   }
 
   render() {
