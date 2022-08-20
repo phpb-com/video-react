@@ -346,6 +346,7 @@ export interface ReplayControlProps {
    * How many seconds to go forward, default: `10`
    */
   seconds?: 5 | 10 | 30;
+  order?: number;
 }
 
 export interface BigPlayButtonProps {
@@ -368,6 +369,7 @@ export interface ForwardControlProps {
    * How many seconds to go forward, default: `10`
    */
   seconds?: 5 | 10 | 30;
+  order?: number;
 }
 
 export interface VolumeMenuButtonProps {
@@ -375,6 +377,7 @@ export interface VolumeMenuButtonProps {
    * The direction where Volume Bar popup, default: `false`
    */
   vertical?: boolean;
+  order?: number;
 }
 
 export interface PlaybackRateMenuButtonProps {
@@ -383,6 +386,7 @@ export interface PlaybackRateMenuButtonProps {
    * `[2, 1.5, 1.25, 1, 0.5, 0.25]`
    */
   rates?: number[];
+  order?: number;
 }
 
 /**
