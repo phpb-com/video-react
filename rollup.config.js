@@ -37,9 +37,11 @@ function baseConfig() {
               loose: true,
               shippedProposals: true,
               modules: false,
-              targets: {
-                ie: 9,
-              },
+              targets: [
+                "defaults",
+                "not IE 11",
+                "maintained node versions"
+              ],
             },
           ],
           '@babel/react',
