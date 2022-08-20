@@ -140,6 +140,7 @@ class OptionsOverlay extends Component {
     return (
       <div className={classNames(className)}>
         <button
+          type="button"
           className={classNames('video-react-options-close')}
           onClick={() => actions.handleOptionsOverlayChange()}
           aria-label="Close Options Menu"
