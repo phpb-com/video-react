@@ -56,6 +56,3 @@ dist
 build
 .next
 example/out
-
-# lockfiles
-yarn.lock
