@@ -2,8 +2,9 @@ class Fullscreen {
   request(elm) {
     if (elm.requestFullscreen) {
       elm.requestFullscreen();
-    } else if (elm.webkitRequestFullscreen) {
-      elm.webkitRequestFullscreen();
+    } else if (elm.webkitEnterFullscreen) {
+      document.webkitEnterFullscreen();
+      elm.webkitEnterFullscreen();
     } else if (elm.mozRequestFullScreen) {
       elm.mozRequestFullScreen();
     } else if (elm.msRequestFullscreen) {
@@ -16,6 +17,7 @@ class Fullscreen {
       document.exitFullscreen();
     } else if (document.webkitExitFullscreen) {
       document.webkitExitFullscreen();
+      elm.webkitExitFullscreen();
     } else if (document.mozCancelFullScreen) {
       document.mozCancelFullScreen();
     } else if (document.msExitFullscreen) {
