@@ -3,6 +3,9 @@
   "version": "1.1.r01",
   "description": "Video-React is a web video player built from the ground up for an HTML5 world using React library.",
   "main": "lib/index.js",
+  "typings": "dist/index",
+  "types": "./src/index.d.ts",
+  "types": "./index.d.ts",
   "style": "dist/video-react.css",
   "scripts": {
     "test": "BABEL_ENV=test jest",
@@ -18,7 +21,7 @@
     "create-patch": "sh ./scripts/release patch",
     "publish-release": "yarn test && sh ./scripts/publish",
     "lint": "eslint src",
-    "format-all": "prettier --config .prettierrc.js --write \"src/**/*.{js,json,md}\" \"docs/**/*.{js,json,md}\" \"*.{js,json,md}\"",
+    "format-all": "prettier --config .prettierrc.js --write \"src/**/*.{js,json,md,ts}\" \"docs/**/*.{js,json,md,ts}\" \"*.{js,json,md,ts}\"",
     "format-one": "prettier --config .prettierrc.js --write"
   },
   "husky": {
@@ -43,6 +46,7 @@
     "lib",
     "dist",
     "styles",
+    "index.d.ts",
     "tonic-example.js"
   ],
   "keywords": [
