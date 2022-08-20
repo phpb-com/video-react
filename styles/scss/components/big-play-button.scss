@@ -15,7 +15,7 @@
     border: 0.06666em solid $video-react-primary-foreground-color;
     // Need a slightly gray bg so it can be seen on black backgrounds
     @include background-color-with-alpha($video-react-primary-background-color, $video-react-primary-background-transparency);
-    @include border-radius(0.3em);
+    @include border-radius(9999px); // Make it round
     @include transition(all 0.4s);
     @extend .video-react-icon;
     @extend .video-react-icon-play-arrow;
@@ -24,7 +24,6 @@
     &:before {
       @extend %video-react-icon-default;
     }
-    // Allow people that hate their poster image to center the big play button.
     &.video-react-big-play-button-center {
       top: 50%;
       left: 50%;
