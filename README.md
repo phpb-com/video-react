@@ -1,4 +1,4 @@
-# video-react
+# @phpb/video-react
 
 [![CodeFactor](https://www.codefactor.io/repository/github/phpb-com/video-react/badge)](https://www.codefactor.io/repository/github/phpb-com/video-react)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/e320167de33c4297a31946d6ac2fe75e)](https://www.codacy.com/gh/phpb-com/video-react/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=phpb-com/video-react&amp;utm_campaign=Badge_Grade)
@@ -15,20 +15,26 @@ Video.React is a web video player built from the ground up for an HTML5 world us
 
 Install `video-react` and **peer dependencies** via NPM
 
+npm:
 ```sh
-npm install --save video-react react react-dom
+npm install --save @phpb/video-react react react-dom
+```
+
+yarn:
+```sh
+yarn add @phpb/video-react react react-dom
 ```
 
 import css in your app or add video-react styles in your page
 
 ```jsx
-import '~video-react/dist/video-react.css'; // import css
+import '~@phpb/video-react/dist/video-react.css'; // import css
 ```
 
 or
 
 ```scss
-@import '~video-react/styles/scss/video-react'; // or import scss
+@import '~@phpb/video-react/styles/scss/video-react'; // or import scss
 ```
 
 or
@@ -44,7 +50,7 @@ Import the components you need, example:
 
 ```js
 import React from 'react';
-import { Player } from 'video-react';
+import { Player } from '@phpb/video-react';
 
 export default (props) => {
   return (
