@@ -20,6 +20,7 @@
     "create-patch": "sh ./scripts/release patch",
     "publish-release": "yarn test && sh ./scripts/publish",
     "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
     "format-all": "prettier --config .prettierrc.js --write \"src/**/*.{js,json,md,ts}\" \"docs/**/*.{js,json,md,ts}\" \"*.{js,json,md,ts}\"",
     "format-one": "prettier --config .prettierrc.js --write"
   },
