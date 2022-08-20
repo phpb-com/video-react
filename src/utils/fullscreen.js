@@ -2,8 +2,8 @@ class Fullscreen {
   request(elm) {
     if (elm.requestFullscreen) {
       elm.requestFullscreen();
-    } else if (elm.webkitRequestFullscreen) {
-      elm.webkitRequestFullscreen();
+    } else if (elm.webkitEnterFullscreen) {
+      elm.webkitEnterFullscreen();
     } else if (elm.mozRequestFullScreen) {
       elm.mozRequestFullScreen();
     } else if (elm.msRequestFullscreen) {
