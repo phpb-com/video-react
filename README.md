@@ -1,7 +1,13 @@
 # video-react
 
-[![npm version](https://badge.fury.io/js/video-react.svg)](https://badge.fury.io/js/video-react) [![Build Status](https://travis-ci.org/video-react/video-react.svg?branch=master)](https://travis-ci.org/video-react/video-react) [![Package Quality](http://npm.packagequality.com/shield/video-react.svg)](http://packagequality.com/#?package=video-react)
-[![codecov](https://codecov.io/gh/video-react/video-react/branch/master/graph/badge.svg)](https://codecov.io/gh/video-react/video-react)
+[![CodeFactor](https://www.codefactor.io/repository/github/phpb-com/video-react/badge)](https://www.codefactor.io/repository/github/phpb-com/video-react)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/e320167de33c4297a31946d6ac2fe75e)](https://www.codacy.com/gh/phpb-com/video-react/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=phpb-com/video-react&amp;utm_campaign=Badge_Grade)
+[![npm version](https://img.shields.io/npm/v/@phpb/video-react.svg?style=flat-square)](https://www.npmjs.com/package/@phpb/video-react)
+[![npm downloads](https://img.shields.io/npm/dm/@phpb/video-react.svg?style=flat-square)](https://www.npmjs.com/package/@phpb/video-react)
+
+This is a fork of the original video-react package that targets to modernize the package and keep dependencies up-to-date.
+
+TODO: Docs need cleaning yet.
 
 Video.React is a web video player built from the ground up for an HTML5 world using React library.
 
