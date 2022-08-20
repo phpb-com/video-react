@@ -20,7 +20,7 @@ const propTypes = {
   children: PropTypes.node,
   label: PropTypes.string,
   valuenow: PropTypes.string,
-  valuetext: PropTypes.string
+  valuetext: PropTypes.string,
 };
 
 export default class Slider extends Component {
@@ -41,7 +41,7 @@ export default class Slider extends Component {
     this.renderChildren = this.renderChildren.bind(this);
 
     this.state = {
-      active: false
+      active: false,
     };
   }
 
@@ -78,7 +78,7 @@ export default class Slider extends Component {
     document.addEventListener('touchend', this.handleMouseUp, true);
 
     this.setState({
-      active: true
+      active: true,
     });
 
     if (this.props.sliderActive) {
@@ -113,7 +113,7 @@ export default class Slider extends Component {
     document.removeEventListener('touchend', this.handleMouseUp, true);
 
     this.setState({
-      active: false
+      active: false,
     });
 
     if (this.props.sliderInactive) {
@@ -185,7 +185,7 @@ export default class Slider extends Component {
   renderChildren() {
     const progress = this.getProgress();
     const percentage = `${(progress * 100).toFixed(2)}%`;
-    return React.Children.map(this.props.children, child =>
+    return React.Children.map(this.props.children, (child) =>
       React.cloneElement(child, { progress, percentage })
     );
   }
@@ -200,11 +200,11 @@ export default class Slider extends Component {
           {
             'video-react-slider-vertical': vertical,
             'video-react-slider-horizontal': !vertical,
-            'video-react-sliding': this.state.active
+            'video-react-sliding': this.state.active,
           },
           'video-react-slider'
         )}
-        ref={c => {
+        ref={(c) => {
           this.slider = c;
         }}
         tabIndex="0"

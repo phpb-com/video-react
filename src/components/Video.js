@@ -41,7 +41,7 @@ const propTypes = {
   onTimeUpdate: PropTypes.func,
   onRateChange: PropTypes.func,
   onVolumeChange: PropTypes.func,
-  onResize: PropTypes.func
+  onResize: PropTypes.func,
 };
 
 export default class Video extends Component {
@@ -151,7 +151,7 @@ export default class Video extends Component {
     const { actions, player } = this.props;
     if (this.video && this.video.textTracks) {
       const activeTextTrack = Array.from(this.video.textTracks).find(
-        textTrack => textTrack.mode === 'showing'
+        (textTrack) => textTrack.mode === 'showing'
       );
       if (activeTextTrack !== player.activeTextTrack) {
         actions.activateTextTrack(activeTextTrack);
@@ -315,9 +315,7 @@ export default class Video extends Component {
   // Fired when the end of the media resource
   // is reached (currentTime == duration)
   handleEnded(...args) {
-    const {
-      loop, player, actions, onEnded
-    } = this.props;
+    const { loop, player, actions, onEnded } = this.props;
     if (loop) {
       this.seek(0);
       this.play();
@@ -488,7 +486,7 @@ export default class Video extends Component {
   renderChildren() {
     const props = {
       ...this.props,
-      video: this.video
+      video: this.video,
     };
 
     // to make sure the children can get video property
@@ -530,7 +528,7 @@ export default class Video extends Component {
       playsInline,
       muted,
       crossOrigin,
-      videoId
+      videoId,
     } = this.props;
 
     return (

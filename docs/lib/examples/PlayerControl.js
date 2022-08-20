@@ -7,7 +7,7 @@ const sources = {
   sintelTrailer: 'http://media.w3.org/2010/05/sintel/trailer.mp4',
   bunnyTrailer: 'http://media.w3.org/2010/05/bunny/trailer.mp4',
   bunnyMovie: 'http://media.w3.org/2010/05/bunny/movie.mp4',
-  test: 'http://media.w3.org/2010/05/video/movie_300.webm'
+  test: 'http://media.w3.org/2010/05/video/movie_300.webm',
 };
 
 export default class PlayerControlExample extends Component {
@@ -15,7 +15,7 @@ export default class PlayerControlExample extends Component {
     super(props, context);
 
     this.state = {
-      source: sources.bunnyMovie
+      source: sources.bunnyMovie,
     };
 
     this.play = this.play.bind(this);
@@ -42,7 +42,7 @@ export default class PlayerControlExample extends Component {
   handleStateChange(state) {
     // copy player state to this component's state
     this.setState({
-      player: state
+      player: state,
     });
   }
 
@@ -88,7 +88,7 @@ export default class PlayerControlExample extends Component {
   changeSource(name) {
     return () => {
       this.setState({
-        source: sources[name]
+        source: sources[name],
       });
       this.player.load();
     };
@@ -98,7 +98,7 @@ export default class PlayerControlExample extends Component {
     return (
       <div>
         <Player
-          ref={player => {
+          ref={(player) => {
             this.player = player;
           }}
           autoPlay

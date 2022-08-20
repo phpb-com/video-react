@@ -6,7 +6,7 @@ import { formatTime } from '../../utils';
 
 const propTypes = {
   player: PropTypes.object,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 function DurationDisplay({ player: { duration }, className }) {

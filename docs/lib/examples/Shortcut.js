@@ -17,11 +17,11 @@ export default class ShortcutExample extends Component {
           const duration = player.duration;
           // jump to the postion of 10%
           actions.seek(duration * 0.1);
-        }
+        },
       },
       {
         keyCode: 38, // Up arrow
-        handle: () => {} // override it's default handle
+        handle: () => {}, // override it's default handle
       },
       // Ctrl/Cmd + Right arrow to go forward 30 seconds
       {
@@ -36,11 +36,11 @@ export default class ShortcutExample extends Component {
           // helps to display a bezel
           const operation = {
             action: 'forward-30',
-            source: 'shortcut'
+            source: 'shortcut',
           };
           actions.forward(30, operation); // Go forward 30 seconds
-        }
-      }
+        },
+      },
     ];
   }
 

@@ -17,7 +17,7 @@ export function findElPosition(el) {
   if (!box) {
     return {
       left: 0,
-      top: 0
+      top: 0,
     };
   }
 
@@ -34,7 +34,7 @@ export function findElPosition(el) {
   // Android sometimes returns slightly off decimal values, so need to round
   return {
     left: Math.round(left),
-    top: Math.round(top)
+    top: Math.round(top),
   };
 }
 

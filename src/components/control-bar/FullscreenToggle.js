@@ -5,7 +5,7 @@ import classNames from 'classnames';
 const propTypes = {
   actions: PropTypes.object,
   player: PropTypes.object,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 export default class FullscreenToggle extends Component {
@@ -28,7 +28,7 @@ export default class FullscreenToggle extends Component {
           className,
           {
             'video-react-icon-fullscreen-exit': player.isFullscreen,
-            'video-react-icon-fullscreen': !player.isFullscreen
+            'video-react-icon-fullscreen': !player.isFullscreen,
           },
           'video-react-fullscreen-control video-react-control video-react-button video-react-icon'
         )}

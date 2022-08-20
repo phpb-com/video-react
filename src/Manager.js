@@ -16,7 +16,7 @@ export default class Manager {
     const { dispatch } = this.store;
     const actions = {
       ...playerActions,
-      ...videoActions
+      ...videoActions,
     };
 
     function bindActionCreator(actionCreator) {
@@ -30,7 +30,7 @@ export default class Manager {
     }
 
     return Object.keys(actions)
-      .filter(key => typeof actions[key] === 'function')
+      .filter((key) => typeof actions[key] === 'function')
       .reduce((boundActions, key) => {
         boundActions[key] = bindActionCreator(actions[key]);
         return boundActions;

@@ -10,14 +10,14 @@ import {
   RouterContext,
   match,
   browserHistory,
-  createMemoryHistory
+  createMemoryHistory,
 } from 'react-router';
 import routes from './routes';
 
 // Client render (optional):
 if (typeof document !== 'undefined') {
   const outlet = document.getElementById('app');
-  browserHistory.listen(function(location) {
+  browserHistory.listen(function (location) {
     // window.ga('set', 'page', location.pathname);
     // window.ga('send', 'pageview');
   });

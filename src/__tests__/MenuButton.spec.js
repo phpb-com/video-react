@@ -3,18 +3,15 @@ import { shallow, mount } from 'enzyme';
 import ClickableComponent from '../components/ClickableComponent';
 import MenuButton from '../components/menu/MenuButton';
 
-const items = [1, 2, 3, 4].map(i => ({
+const items = [1, 2, 3, 4].map((i) => ({
   label: `item${i}`,
-  value: `item${i}`
+  value: `item${i}`,
 }));
 
 describe('ClosedCaptionButton', () => {
   it('should render with "MenuButton" tag', () => {
     const wrapper = shallow(
-      <MenuButton
-        items={items}
-        selectedIndex={0}
-      >
+      <MenuButton items={items} selectedIndex={0}>
         <span className="video-react-control-text">Button</span>
       </MenuButton>
     );
@@ -24,10 +21,7 @@ describe('ClosedCaptionButton', () => {
 
   it('should show menu items after click', () => {
     const wrapper = mount(
-      <MenuButton
-        items={items}
-        selectedIndex={0}
-      >
+      <MenuButton items={items} selectedIndex={0}>
         <span className="video-react-control-text">Button</span>
       </MenuButton>
     );

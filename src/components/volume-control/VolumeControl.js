@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import VolumeBar from './VolumeBar';
 
 const propTypes = {
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 export default function VolumeControl({ className, ...rest }) {

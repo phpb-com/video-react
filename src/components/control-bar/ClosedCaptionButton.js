@@ -9,13 +9,13 @@ const propTypes = {
   className: PropTypes.string,
   offMenuText: PropTypes.string,
   showOffMenu: PropTypes.bool,
-  kinds: PropTypes.array
+  kinds: PropTypes.array,
 };
 
 const defaultProps = {
   offMenuText: 'Off',
   showOffMenu: true,
-  kinds: ['captions', 'subtitles'] // `kind`s of TextTrack to look for to associate it with this menu.
+  kinds: ['captions', 'subtitles'], // `kind`s of TextTrack to look for to associate it with this menu.
 };
 
 class ClosedCaptionButton extends Component {
@@ -34,13 +34,11 @@ class ClosedCaptionButton extends Component {
   }
 
   getTextTrackItems() {
-    const {
-      kinds, player, offMenuText, showOffMenu
-    } = this.props;
+    const { kinds, player, offMenuText, showOffMenu } = this.props;
     const { textTracks, activeTextTrack } = player;
     const textTrackItems = {
       items: [],
-      selectedIndex: 0
+      selectedIndex: 0,
     };
     const tracks = Array.from(textTracks || []);
 
@@ -51,7 +49,7 @@ class ClosedCaptionButton extends Component {
     if (showOffMenu) {
       textTrackItems.items.push({
         label: offMenuText || 'Off',
-        value: null
+        value: null,
       });
     }
 
@@ -63,12 +61,12 @@ class ClosedCaptionButton extends Component {
 
       textTrackItems.items.push({
         label: textTrack.label,
-        value: textTrack.language
+        value: textTrack.language,
       });
     });
 
     textTrackItems.selectedIndex = textTrackItems.items.findIndex(
-      item => activeTextTrack && activeTextTrack.language === item.value
+      (item) => activeTextTrack && activeTextTrack.language === item.value
     );
 
     if (textTrackItems.selectedIndex === -1) {
@@ -81,8 +79,8 @@ class ClosedCaptionButton extends Component {
   updateState() {
     const textTrackItems = this.getTextTrackItems();
     if (
-      textTrackItems.selectedIndex !== this.state.selectedIndex
-      || !this.textTrackItemsAreEqual(textTrackItems.items, this.state.items)
+      textTrackItems.selectedIndex !== this.state.selectedIndex ||
+      !this.textTrackItemsAreEqual(textTrackItems.items, this.state.items)
     ) {
       this.setState(textTrackItems);
     }
@@ -95,9 +93,9 @@ class ClosedCaptionButton extends Component {
 
     for (let i = 0; i < items1.length; i++) {
       if (
-        !items2[i]
-        || items1[i].label !== items2[i].label
-        || items1[i].value !== items2[i].value
+        !items2[i] ||
+        items1[i].label !== items2[i].label ||
+        items1[i].value !== items2[i].value
       ) {
         return false;
       }

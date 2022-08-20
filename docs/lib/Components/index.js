@@ -1,10 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
-import {
-  Container, Row, Col, Nav, NavItem, NavLink
-} from 'reactstrap';
+import { Container, Row, Col, Nav, NavItem, NavLink } from 'reactstrap';
 
-const ComponentLink = props => (
+const ComponentLink = (props) => (
   <NavItem>
     <NavLink tag={Link} to={props.item.to} activeClassName="active">
       {props.item.name}
@@ -20,53 +18,53 @@ class Components extends React.Component {
       navItems: [
         {
           name: 'Player',
-          to: '/components/player/'
+          to: '/components/player/',
         },
         {
           name: 'Shortcut',
-          to: '/components/shortcut/'
+          to: '/components/shortcut/',
         },
         {
           name: 'BigPlayButton',
-          to: '/components/big-play-button/'
+          to: '/components/big-play-button/',
         },
         {
           name: 'PosterImage',
-          to: '/components/poster-image/'
+          to: '/components/poster-image/',
         },
         {
           name: 'LoadingSpinner',
-          to: '/components/loading-spinner/'
+          to: '/components/loading-spinner/',
         },
         {
           name: 'ControlBar',
-          to: '/components/control-bar/'
+          to: '/components/control-bar/',
         },
         {
           name: 'PlayToggle',
-          to: '/components/play-toggle/'
+          to: '/components/play-toggle/',
         },
         {
           name: 'ReplayControl',
-          to: '/components/replay-control/'
+          to: '/components/replay-control/',
         },
         {
           name: 'ForwardControl',
-          to: '/components/forward-control/'
+          to: '/components/forward-control/',
         },
         {
           name: 'VolumeMenuButton',
-          to: '/components/volume-menu-button/'
+          to: '/components/volume-menu-button/',
         },
         {
           name: 'PlaybackRateMenuButton',
-          to: '/components/playback-rate-menu-button/'
+          to: '/components/playback-rate-menu-button/',
         },
         {
           name: 'ClosedCaptionButton',
-          to: '/components/captioned-video'
-        }
-      ]
+          to: '/components/captioned-video',
+        },
+      ],
     };
   }
 
@@ -78,7 +76,7 @@ class Components extends React.Component {
             <div className="docs-sidebar mb-3">
               <h5>Components</h5>
               <Nav className="flex-column">
-                {this.state.navItems.map(item => (
+                {this.state.navItems.map((item) => (
                   <ComponentLink key={item.name} item={item} />
                 ))}
               </Nav>

@@ -4,11 +4,11 @@ import React, { Component } from 'react';
 const propTypes = {
   actions: PropTypes.object,
   className: PropTypes.string,
-  seconds: PropTypes.oneOf([5, 10, 30])
+  seconds: PropTypes.oneOf([5, 10, 30]),
 };
 
 const defaultProps = {
-  seconds: 10
+  seconds: 10,
 };
 
 export default (mode) => {
@@ -33,7 +33,7 @@ export default (mode) => {
       const classNames = [
         'video-react-control',
         'video-react-button',
-        'video-react-icon'
+        'video-react-icon',
       ];
       classNames.push(
         `video-react-icon-${mode}-${seconds}`,

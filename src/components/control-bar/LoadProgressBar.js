@@ -5,7 +5,7 @@ import classNames from 'classnames';
 const propTypes = {
   duration: PropTypes.number,
   buffered: PropTypes.object,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 // Shows load progress
@@ -40,7 +40,7 @@ export default function LoadProgressBar({ buffered, duration, className }) {
       <div
         style={{
           left: percentify(start, bufferedEnd),
-          width: percentify(end - start, bufferedEnd)
+          width: percentify(end - start, bufferedEnd),
         }}
         key={`part-${i}`}
       />

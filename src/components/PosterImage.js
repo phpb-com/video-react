@@ -6,12 +6,10 @@ const propTypes = {
   poster: PropTypes.string,
   player: PropTypes.object,
   actions: PropTypes.object,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
-function PosterImage({
-  poster, player, actions, className
-}) {
+function PosterImage({ poster, player, actions, className }) {
   if (!poster || player.hasStarted) {
     return null;
   }
@@ -20,7 +18,7 @@ function PosterImage({
     <div
       className={classNames('video-react-poster', className)}
       style={{
-        backgroundImage: `url("${poster}")`
+        backgroundImage: `url("${poster}")`,
       }}
       onClick={() => {
         if (player.paused) {

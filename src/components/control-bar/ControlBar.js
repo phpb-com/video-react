@@ -21,12 +21,12 @@ const propTypes = {
   autoHideTime: PropTypes.number, // used in Player
   disableDefaultControls: PropTypes.bool,
   disableCompletely: PropTypes.bool,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 const defaultProps = {
   autoHide: true,
-  disableCompletely: false
+  disableCompletely: false,
 };
 
 export default class ControlBar extends Component {
@@ -45,7 +45,7 @@ export default class ControlBar extends Component {
       <TimeDivider key="time-divider" order={5.2} />,
       <DurationDisplay key="duration-display" order={5.3} />,
       <ProgressControl key="progress-control" order={6} />,
-      <FullscreenToggle key="fullscreen-toggle" order={8} />
+      <FullscreenToggle key="fullscreen-toggle" order={8} />,
     ];
   }
 
@@ -65,7 +65,7 @@ export default class ControlBar extends Component {
         key="playback-rate"
         order={10}
       />,
-      <FullscreenToggle key="fullscreen-toggle" order={11} />
+      <FullscreenToggle key="fullscreen-toggle" order={11} />,
     ];
   }
 
@@ -87,7 +87,7 @@ export default class ControlBar extends Component {
         className={classNames(
           'video-react-control-bar',
           {
-            'video-react-control-bar-auto-hide': autoHide
+            'video-react-control-bar-auto-hide': autoHide,
           },
           className
         )}

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 const propTypes = {
   player: PropTypes.object,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 export default function LoadingSpinner({ player, className }) {

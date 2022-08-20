@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 const propTypes = {
-  children: PropTypes.any
+  children: PropTypes.any,
 };
 
 export default class Menu extends Component {

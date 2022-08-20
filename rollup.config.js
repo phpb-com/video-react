@@ -13,7 +13,7 @@ const dependencies = Object.keys(packageJson.dependencies);
 function globals() {
   return {
     react: 'React',
-    'react-dom': 'ReactDOM'
+    'react-dom': 'ReactDOM',
   };
 }
 
@@ -22,11 +22,11 @@ function baseConfig() {
     input: 'src/video-react.js',
     plugins: [
       sass({
-        output: 'dist/video-react.css'
+        output: 'dist/video-react.css',
       }),
       nodeResolve(),
       commonjs({
-        include: 'node_modules/**'
+        include: 'node_modules/**',
       }),
       babel({
         babelrc: false,
@@ -38,24 +38,24 @@ function baseConfig() {
               shippedProposals: true,
               modules: false,
               targets: {
-                ie: 9
-              }
-            }
+                ie: 9,
+              },
+            },
           ],
-          '@babel/react'
-        ]
-      })
-    ]
+          '@babel/react',
+        ],
+      }),
+    ],
   };
 }
 
 function baseUmdConfig(minified) {
   const config = Object.assign(baseConfig(), {
-    external: peerDependencies
+    external: peerDependencies,
   });
   config.plugins.push(
     replace({
-      'process.env.NODE_ENV': JSON.stringify('production')
+      'process.env.NODE_ENV': JSON.stringify('production'),
     })
   );
 
@@ -81,14 +81,14 @@ libConfig.output = [
     sourcemap: true,
     name: 'video-react',
     file: 'dist/video-react.cjs.js',
-    format: 'cjs'
+    format: 'cjs',
   },
   {
     sourcemap: true,
     name: 'video-react',
     file: 'dist/video-react.es.js',
-    format: 'es'
-  }
+    format: 'es',
+  },
 ];
 
 /*
@@ -123,12 +123,12 @@ umdFullConfig.output = [
     sourcemap: true,
     name: 'video-react',
     file: 'dist/video-react.full.js',
-    format: 'umd'
-  }
+    format: 'umd',
+  },
 ];
 
 // Validate globals in main UMD config
-const missingGlobals = peerDependencies.filter(dep => !(dep in globals()));
+const missingGlobals = peerDependencies.filter((dep) => !(dep in globals()));
 if (missingGlobals.length) {
   console.error(
     'All peer dependencies need to be mentioned in globals, please update rollup.config.js.'
@@ -145,15 +145,15 @@ umdFullConfigMin.output = [
     sourcemap: true,
     name: 'video-react',
     file: 'dist/video-react.full.min.js',
-    format: 'umd'
-  }
+    format: 'umd',
+  },
 ];
 
 const external = umdFullConfig.external.slice();
 external.push('redux');
 
 const allGlobals = Object.assign({}, globals(), {
-  redux: 'Redux'
+  redux: 'Redux',
 });
 
 const umdConfig = baseUmdConfig(false);
@@ -164,8 +164,8 @@ umdConfig.output = [
     sourcemap: true,
     name: 'video-react',
     file: 'dist/video-react.js',
-    format: 'umd'
-  }
+    format: 'umd',
+  },
 ];
 
 const umdConfigMin = baseUmdConfig(true);
@@ -176,8 +176,8 @@ umdConfigMin.output = [
     sourcemap: true,
     name: 'video-react',
     file: 'dist/video-react.min.js',
-    format: 'umd'
-  }
+    format: 'umd',
+  },
 ];
 
 export default [
@@ -185,5 +185,5 @@ export default [
   umdFullConfig,
   umdFullConfigMin,
   umdConfig,
-  umdConfigMin
+  umdConfigMin,
 ];

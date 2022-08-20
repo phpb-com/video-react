@@ -10,11 +10,11 @@ const propTypes = {
   actions: PropTypes.object,
   vertical: PropTypes.bool,
   className: PropTypes.string,
-  alwaysShowVolume: PropTypes.bool
+  alwaysShowVolume: PropTypes.bool,
 };
 
 const defaultProps = {
-  vertical: false
+  vertical: false,
 };
 
 class VolumeMenuButton extends Component {
@@ -22,7 +22,7 @@ class VolumeMenuButton extends Component {
     super(props, context);
 
     this.state = {
-      active: false
+      active: false,
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -32,7 +32,7 @@ class VolumeMenuButton extends Component {
 
   get volumeLevel() {
     const {
-      player: { volume, muted }
+      player: { volume, muted },
     } = this.props;
     let level = 3;
     if (volume === 0 || muted) {
@@ -52,13 +52,13 @@ class VolumeMenuButton extends Component {
 
   handleFocus() {
     this.setState({
-      active: true
+      active: true,
     });
   }
 
   handleBlur() {
     this.setState({
-      active: false
+      active: false,
     });
   }
 
@@ -81,7 +81,7 @@ class VolumeMenuButton extends Component {
             'video-react-slider-active':
               this.props.alwaysShowVolume || this.state.active,
             'video-react-lock-showing':
-              this.props.alwaysShowVolume || this.state.active
+              this.props.alwaysShowVolume || this.state.active,
           },
           'video-react-volume-menu-button'
         )}

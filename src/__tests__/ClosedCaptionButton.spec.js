@@ -10,47 +10,39 @@ const playerState = {
       kind: 'captions',
       label: 'English',
       language: 'en',
-      mode: 'showing'
+      mode: 'showing',
     },
     {
       kind: 'captions',
       label: 'Swedish',
       language: 'sv',
-      mode: 'hidden'
+      mode: 'hidden',
     },
     {
       kind: 'captions',
       label: 'Russian',
       language: 'ru',
-      mode: 'hidden'
+      mode: 'hidden',
     },
     {
       kind: 'descriptions',
       label: 'English',
       language: 'en',
-      mode: 'hidden'
-    }
+      mode: 'hidden',
+    },
   ],
-  currentTextTrack: null
+  currentTextTrack: null,
 };
 
 describe('ClosedCaptionButton', () => {
   it('should render with "MenuButton" tag', () => {
-    const wrapper = shallow(
-      <ClosedCaptionButton
-        player={playerState}
-      />
-    );
+    const wrapper = shallow(<ClosedCaptionButton player={playerState} />);
 
     expect(wrapper.type()).toBe(MenuButton);
   });
 
   it('should show menu items after click', () => {
-    const wrapper = mount(
-      <ClosedCaptionButton
-        player={playerState}
-      />
-    );
+    const wrapper = mount(<ClosedCaptionButton player={playerState} />);
 
     expect(wrapper.find('.video-react-menu-item').length).toEqual(0);
     expect(wrapper.find('div.video-react-closed-caption').length).toEqual(1);

@@ -3,7 +3,7 @@ import Helmet from 'react-helmet';
 import Footer from './Footer';
 import Nav from './Nav';
 
-export default props => {
+export default (props) => {
   return (
     <div className="wrapper">
       <Helmet
@@ -14,12 +14,12 @@ export default props => {
           {
             name: 'description',
             content:
-              'Video-React is a web video player built from the ground up for an HTML5 world using React library.'
+              'Video-React is a web video player built from the ground up for an HTML5 world using React library.',
           },
           {
             property: 'og:type',
-            content: 'article'
-          }
+            content: 'article',
+          },
         ]}
       />
       <Nav />

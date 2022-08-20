@@ -7,10 +7,10 @@ import {
   CurrentTimeDisplay,
   TimeDivider,
   PlaybackRateMenuButton,
-  VolumeMenuButton
+  VolumeMenuButton,
 } from 'video-react';
 
-export default props => {
+export default (props) => {
   return (
     <Player poster="/assets/poster.png">
       <source src="http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4" />

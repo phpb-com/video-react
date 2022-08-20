@@ -7,11 +7,11 @@ const propTypes = {
   player: PropTypes.object,
   actions: PropTypes.object,
   rates: PropTypes.array,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 const defaultProps = {
-  rates: [2, 1.5, 1.25, 1, 0.5, 0.25]
+  rates: [2, 1.5, 1.25, 1, 0.5, 0.25],
 };
 
 class PlaybackRateMenuButton extends Component {
@@ -30,9 +30,9 @@ class PlaybackRateMenuButton extends Component {
 
   render() {
     const { rates, player } = this.props;
-    const items = rates.map(rate => ({
+    const items = rates.map((rate) => ({
       label: `${rate}x`,
-      value: rate
+      value: rate,
     }));
     const selectedIndex = rates.indexOf(player.playbackRate) || 0;
 
