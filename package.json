@@ -99,7 +99,7 @@
     "@wojtekmaj/enzyme-adapter-react-17": "0.6.7",
     "babel-jest": "29.0.2",
     "babel-loader": "8.2.5",
-    "bootstrap": "5.2.0",
+    "bootstrap": "5.2.1",
     "clean-webpack-plugin": "4.0.0",
     "conventional-changelog-cli": "2.2.2",
     "conventional-recommended-bump": "6.1.0",
