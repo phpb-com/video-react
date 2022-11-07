@@ -142,7 +142,7 @@
     "rollup-plugin-sass": "1.12.16",
     "sass": "1.56.0",
     "sass-loader": "13.1.0",
-    "sinon": "14.0.1",
+    "sinon": "14.0.2",
     "static-site-generator-webpack-plugin": "3.4.2",
     "style-loader": "3.3.1",
     "terser-webpack-plugin": "5.3.6",
