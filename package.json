@@ -140,7 +140,7 @@
     "rollup-plugin-node-resolve": "5.2.0",
     "rollup-plugin-replace": "2.2.0",
     "rollup-plugin-sass": "1.12.16",
-    "sass": "1.56.0",
+    "sass": "1.56.1",
     "sass-loader": "13.1.0",
     "sinon": "14.0.2",
     "static-site-generator-webpack-plugin": "3.4.2",
