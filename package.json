@@ -87,11 +87,11 @@
     "react-dom": "^16.0.0 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "7.19.3",
-    "@babel/core": "7.20.5",
+    "@babel/cli": "7.20.7",
+    "@babel/core": "7.20.7",
     "@babel/eslint-parser": "7.19.1",
-    "@babel/plugin-proposal-object-rest-spread": "7.20.2",
-    "@babel/plugin-transform-modules-commonjs": "7.19.6",
+    "@babel/plugin-proposal-object-rest-spread": "7.20.7",
+    "@babel/plugin-transform-modules-commonjs": "7.20.7",
     "@babel/plugin-transform-runtime": "7.19.6",
     "@babel/polyfill": "7.12.1",
     "@babel/preset-env": "7.20.2",
